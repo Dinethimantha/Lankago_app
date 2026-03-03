@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "165022529190",
+    "project_id": "lanka-go-a058c",
+    "storage_bucket": "lanka-go-a058c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165022529190:android:692996d4c55a698c24a667",
+        "android_client_info": {
+          "package_name": "com.example.lanka_go"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxL7bpx0GTx5VznUTCW-70sFVx1pFLA3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

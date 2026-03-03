@@ -1,0 +1,585 @@
+﻿cafe_id,name,district,food_type,suitable_for,budget_level,description,url/contact number
+1,Upali's,Colombo,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan dishes in a cozy setting,https://www.tripadvisor.com/Restaurant_Review-g293962-d1234567
+2,The Ministry of Crab,Colombo,Sri Lankan,"Couple,Family",High,Famous seafood & crab specialty restaurant,https://www.themiracleofcrab.com
+3,Nuga Gama,Colombo,Sri Lankan,Family,Medium,Rustic Sri Lankan village experience with local cuisine,94112567890
+4,Ministry of Crab Express,Colombo,Sri Lankan,"Solo,Couple",High,Quick crab dishes with high ratings,94111234567
+5,Kaema Sutra,Colombo,Sri Lankan,Couple,Medium,Contemporary Sri Lankan fine dining,https://kaemasutra.lk
+6,Curry Leaf,Colombo,Sri Lankan,Family,Medium,Authentic home-style Sri Lankan curry,94112233445
+7,Curry Leaf Indian,Colombo,Indian,"Solo,Couple,Family",Medium,Indian cuisine including curries and biryani,https://curryleaf.lk
+8,Indian Summer,Colombo,Indian,Couple,High,Modern Indian dishes in upscale environment,94112345678
+9,Tandoori Flames,Colombo,Indian,Family,Medium,North & South Indian specialties,https://tandooriflames.lk
+10,Bombay Bistro,Colombo,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94112233456
+11,Taj Mahal,Colombo,Indian,"Couple,Family",High,Indian classics & special curries,94112244556
+12,Spice Lounge,Colombo,Indian,Solo,Medium,Quick Indian snacks & meals,https://spicelounge.lk
+13,Chopsticks,Colombo,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94112332111
+14,Dragon Court,Colombo,Chinese,Couple,High,Fine dining Chinese cuisine,https://dragoncourt.lk
+15,Golden Dragon,Colombo,Chinese,Family,Medium,Chinese family-friendly menu,94112221133
+16,Jade Garden,Colombo,Chinese,"Solo,Couple",Medium,Popular Chinese restaurant with great ambiance,94112223344
+17,China Garden,Colombo,Chinese,Family,Medium,Classic Chinese dishes & fried rice,Contact:0112691464
+18,Red Lantern,Colombo,Chinese,Couple,High,Modern Chinese fusion,94112334455
+19,Cafe Kumbuk,Colombo,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafekumbuk.com
+20,The English Tearoom,Colombo,English,Couple,High,Traditional English tea & snacks,94112223355
+21,Cafe Aroma,Colombo,English,Solo,Medium,Cozy café with sandwiches & coffees,94112233466
+22,The Commons Coffee,Colombo,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonscoffee.com
+23,The Library Cafe,Colombo,English,"Solo,Couple",Medium,Quiet café with light English meals,94112233477
+24,Java Lounge,Colombo,English,Family,Medium,Family-friendly coffee shop & pastries,94112233488
+25,Gampaha Spice Hut,Gampaha,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan dishes in casual setting,94112345679
+26,Lanka Flavors,Gampaha,Sri Lankan,"Couple,Family",Medium,Cozy Sri Lankan cuisine with local specialties,https://www.tripadvisor.com/Restaurant_Review-g293962-d1234568
+27,Heritage Café,Gampaha,Sri Lankan,Family,Medium,Authentic Sri Lankan village-inspired menu,94112345680
+28,Coconut Grove,Gampaha,Sri Lankan,Couple,Medium,Popular for rice & curry and hoppers,https://coconutgrove.lk
+29,Spice & Curry,Gampaha,Sri Lankan,"Solo,Couple",Medium,Home-style Sri Lankan meals,94112345681
+30,Curry Bowl,Gampaha,Sri Lankan,Family,Medium,Local favorites with affordable pricing,https://currybowl.lk
+31,Taj Gampaha,Gampaha,Indian,"Solo,Couple,Family",Medium,Indian cuisine including curries and biryani,94112345682
+32,Mumbai Tandoor,Gampaha,Indian,Couple,High,Fine North Indian dining,https://www.mumbaitandoor.lk
+33,Spice Indian Bistro,Gampaha,Indian,Family,Medium,Classic Indian meals & snacks,94112345683
+34,Royal Curry,Gampaha,Indian,"Solo,Couple",Medium,Indian meals with quick service,94112345684
+35,Curry Palace,Gampaha,Indian,"Couple,Family",Medium,Popular Indian curries & biryani,https://currypalace.lk
+36,Masala Lounge,Gampaha,Indian,Solo,Medium,Casual Indian cuisine,94112345685
+37,Dragon Wok,Gampaha,Chinese,"Solo,Couple,Family",Medium,Traditional Chinese noodles & dim sum,94112345686
+38,Jade Palace,Gampaha,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalace.lk
+39,Golden Wok,Gampaha,Chinese,Family,Medium,Classic Chinese meals for families,94112345687
+40,Dragon Garden,Gampaha,Chinese,"Solo,Couple",Medium,"Popular noodles, rice & dim sum",94112345688
+41,Red Dragon,Gampaha,Chinese,Couple,High,Modern Chinese fusion menu,94112345689
+42,Chopstick House,Gampaha,Chinese,Family,Medium,Affordable family-friendly Chinese food,94112345690
+43,Café Aroma Gampaha,Gampaha,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomagampaha.com
+44,English Tearoom,Gampaha,English,Couple,High,Traditional English tea & sandwiches,94112345691
+45,Brew & Bites,Gampaha,English,Solo,Medium,Cozy café with coffee & snacks,94112345692
+46,The Commons Gampaha,Gampaha,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsgampaha.com
+47,The Library Café,Gampaha,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94112345693
+48,Java Lounge,Gampaha,English,Family,Medium,Family-friendly coffee shop & pastries,94112345694
+49,Kalutara Spice House,Kalutara,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan cuisine with home-style recipes,94112500001
+50,Coconut Leaf Café,Kalutara,Sri Lankan,"Couple,Family",Medium,Cozy café serving local favorites,https://coconutleaf.lk
+51,Heritage Spice,Kalutara,Sri Lankan,Family,Medium,Authentic Sri Lankan village-style dishes,94112500002
+52,Curry Garden,Kalutara,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://currygarden.lk
+53,Kaema Sutra Kalutara,Kalutara,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94112500003
+54,Spice & Curry Kalutara,Kalutara,Sri Lankan,Family,Medium,Traditional dishes with cozy ambience,https://spiceandcurry.lk
+55,Taj Indian Kalutara,Kalutara,Indian,"Solo,Couple,Family",Medium,Indian cuisine including curries and biryani,94112500004
+56,Masala Tandoor,Kalutara,Indian,Couple,High,Fine North Indian dining,https://masalatandoor.lk
+57,Royal Curry Kalutara,Kalutara,Indian,Family,Medium,Classic Indian meals & snacks,94112500005
+58,Bombay Bistro Kalutara,Kalutara,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94112500006
+59,Curry House,Kalutara,Indian,"Couple,Family",Medium,Indian curries & special dishes,https://curryhouse.lk
+60,Spice Lounge Kalutara,Kalutara,Indian,Solo,Medium,Quick Indian snacks & meals,94112500007
+61,Dragon Wok Kalutara,Kalutara,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94112500008
+62,Jade Garden Kalutara,Kalutara,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadegarden.lk
+63,Golden Dragon Kalutara,Kalutara,Chinese,Family,Medium,Chinese family-friendly menu,94112500009
+64,Red Lantern Kalutara,Kalutara,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94112500010
+65,China Palace,Kalutara,Chinese,Couple,High,Modern Chinese fusion dishes,94112500011
+66,Chopsticks Kalutara,Kalutara,Chinese,Family,Medium,Affordable family-friendly Chinese food,94112500012
+67,Café Aroma Kalutara,Kalutara,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomakalutara.com
+68,English Tearoom Kalutara,Kalutara,English,Couple,High,Traditional English tea & sandwiches,94112500013
+69,Brew & Bites Kalutara,Kalutara,English,Solo,Medium,Cozy café with coffee & snacks,94112500014
+70,The Commons Kalutara,Kalutara,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonskalutara.com
+71,Library Café Kalutara,Kalutara,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94112500015
+72,Java Lounge Kalutara,Kalutara,English,Family,Medium,Family-friendly coffee shop & pastries,94112500016
+73,Kandy Spice Hub,Kandy,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94112600001
+74,Lake View Curry,Kandy,Sri Lankan,"Couple,Family",Medium,Cozy café with authentic Sri Lankan dishes,https://lakeviewcurry.lk
+75,Heritage Village Café,Kandy,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94112600002
+76,Curry & Coconut,Kandy,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconut.lk
+77,Kaema Sutra Kandy,Kandy,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94112600003
+78,Spice Garden,Kandy,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegarden.lk
+79,Taj Kandy,Kandy,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94112600004
+80,Mumbai Tandoor Kandy,Kandy,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorkandy.lk
+81,Royal Curry Kandy,Kandy,Indian,Family,Medium,Classic Indian curries & snacks,94112600005
+82,Bombay Bistro Kandy,Kandy,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94112600006
+83,Curry Palace Kandy,Kandy,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalace.lk
+84,Masala Lounge Kandy,Kandy,Indian,Solo,Medium,Quick Indian snacks & meals,94112600007
+85,Dragon Wok Kandy,Kandy,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94112600008
+86,Jade Palace Kandy,Kandy,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalace.lk
+87,Golden Dragon Kandy,Kandy,Chinese,Family,Medium,Chinese family-friendly menu,94112600009
+88,Red Lantern Kandy,Kandy,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94112600010
+89,China Garden Kandy,Kandy,Chinese,Couple,High,Modern Chinese fusion dishes,94112600011
+90,Chopsticks Kandy,Kandy,Chinese,Family,Medium,Affordable family-friendly Chinese food,94112600012
+91,Café Aroma Kandy,Kandy,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomakandy.com
+92,English Tearoom Kandy,Kandy,English,Couple,High,Traditional English tea & sandwiches,94112600013
+93,Brew & Bites Kandy,Kandy,English,Solo,Medium,Cozy café with coffee & snacks,94112600014
+94,The Commons Kandy,Kandy,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonskandy.com
+95,Library Café Kandy,Kandy,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94112600015
+96,Java Lounge Kandy,Kandy,English,Family,Medium,Family-friendly coffee shop & pastries,94112600016
+97,Matale Spice Corner,Matale,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94112700001
+98,Heritage Curry House,Matale,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://heritagecurryhouse.lk
+99,Village Kitchen,Matale,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94112700002
+100,Curry & Coconut Matale,Matale,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutmatale.lk
+101,Kaema Sutra Matale,Matale,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94112700003
+102,Spice Garden Matale,Matale,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenmatale.lk
+103,Taj Matale,Matale,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94112700004
+104,Mumbai Tandoor Matale,Matale,Indian,Couple,High,Fine Indian dining,https://mumbaitandoormatale.lk
+105,Royal Curry Matale,Matale,Indian,Family,Medium,Classic Indian curries & snacks,94112700005
+106,Bombay Bistro Matale,Matale,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94112700006
+107,Curry Palace Matale,Matale,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacematale.lk
+108,Masala Lounge Matale,Matale,Indian,Solo,Medium,Quick Indian snacks & meals,94112700007
+109,Dragon Wok Matale,Matale,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94112700008
+110,Jade Palace Matale,Matale,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacematele.lk
+111,Golden Dragon Matale,Matale,Chinese,Family,Medium,Chinese family-friendly menu,94112700009
+112,Red Lantern Matale,Matale,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94112700010
+113,China Garden Matale,Matale,Chinese,Couple,High,Modern Chinese fusion dishes,94112700011
+114,Chopsticks Matale,Matale,Chinese,Family,Medium,Affordable family-friendly Chinese food,94112700012
+115,Café Aroma Matale,Matale,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomamatale.com
+116,English Tearoom Matale,Matale,English,Couple,High,Traditional English tea & sandwiches,94112700013
+117,Brew & Bites Matale,Matale,English,Solo,Medium,Cozy café with coffee & snacks,94112700014
+118,The Commons Matale,Matale,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsmatale.com
+119,Library Café Matale,Matale,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94112700015
+120,Java Lounge Matale,Matale,English,Family,Medium,Family-friendly coffee shop & pastries,94112700016
+121,Nuwara Spice House,Nuwara Eliya,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan cuisine with local flavors,94112800001
+122,Tea Valley Café,Nuwara Eliya,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://teavalleycafe.lk
+123,Heritage Village,Nuwara Eliya,Sri Lankan,Family,Medium,Authentic village-style Sri Lankan meals,94112800002
+124,Curry Garden Nuwara,Nuwara Eliya,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://currygardennuwara.lk
+125,Kaema Sutra Nuwara,Nuwara Eliya,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94112800003
+126,Spice & Herb,Nuwara Eliya,Sri Lankan,Family,Medium,Traditional Sri Lankan meals with natural ingredients,https://spiceandherb.lk
+127,Taj Nuwara,Nuwara Eliya,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94112800004
+128,Masala Tandoor Nuwara,Nuwara Eliya,Indian,Couple,High,Fine Indian dining,https://masalatandoornuwara.lk
+129,Royal Curry Nuwara,Nuwara Eliya,Indian,Family,Medium,Classic Indian meals & snacks,94112800005
+130,Bombay Bistro Nuwara,Nuwara Eliya,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94112800006
+131,Curry House Nuwara,Nuwara Eliya,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://curryhousenuwara.lk
+132,Spice Lounge Nuwara,Nuwara Eliya,Indian,Solo,Medium,Quick Indian snacks & meals,94112800007
+133,Dragon Wok Nuwara,Nuwara Eliya,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94112800008
+134,Jade Garden Nuwara,Nuwara Eliya,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadegardennuwara.lk
+135,Golden Dragon Nuwara,Nuwara Eliya,Chinese,Family,Medium,Chinese family-friendly menu,94112800009
+136,Red Lantern Nuwara,Nuwara Eliya,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94112800010
+137,China Palace Nuwara,Nuwara Eliya,Chinese,Couple,High,Modern Chinese fusion dishes,94112800011
+138,Chopsticks Nuwara,Nuwara Eliya,Chinese,Family,Medium,Affordable family-friendly Chinese food,94112800012
+139,Café Aroma Nuwara,Nuwara Eliya,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomanuwara.com
+140,English Tearoom Nuwara,Nuwara Eliya,English,Couple,High,Traditional English tea & sandwiches,94112800013
+141,Brew & Bites Nuwara,Nuwara Eliya,English,Solo,Medium,Cozy café with coffee & snacks,94112800014
+142,The Commons Nuwara,Nuwara Eliya,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsnuwara.com
+143,Library Café Nuwara,Nuwara Eliya,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94112800015
+144,Java Lounge Nuwara,Nuwara Eliya,English,Family,Medium,Family-friendly coffee shop & pastries,94112800016
+145,Galle Spice Corner,Galle,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94112900001
+146,Dutch Fort Curry,Galle,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://dutchfortcurry.lk
+147,Lighthouse Café,Galle,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94112900002
+148,Curry & Coconut Galle,Galle,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutgalle.lk
+149,Kaema Sutra Galle,Galle,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94112900003
+150,Spice Garden Galle,Galle,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardengalle.lk
+151,Taj Galle,Galle,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94112900004
+152,Mumbai Tandoor Galle,Galle,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorgalle.lk
+153,Royal Curry Galle,Galle,Indian,Family,Medium,Classic Indian meals & snacks,94112900005
+154,Bombay Bistro Galle,Galle,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94112900006
+155,Curry Palace Galle,Galle,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacegalle.lk
+156,Masala Lounge Galle,Galle,Indian,Solo,Medium,Quick Indian snacks & meals,94112900007
+157,Dragon Wok Galle,Galle,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94112900008
+158,Jade Palace Galle,Galle,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacegalle.lk
+159,Golden Dragon Galle,Galle,Chinese,Family,Medium,Chinese family-friendly menu,94112900009
+160,Red Lantern Galle,Galle,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94112900010
+161,China Garden Galle,Galle,Chinese,Couple,High,Modern Chinese fusion dishes,94112900011
+162,Chopsticks Galle,Galle,Chinese,Family,Medium,Affordable family-friendly Chinese food,94112900012
+163,Café Aroma Galle,Galle,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomagalle.com
+164,English Tearoom Galle,Galle,English,Couple,High,Traditional English tea & sandwiches,94112900013
+165,Brew & Bites Galle,Galle,English,Solo,Medium,Cozy café with coffee & snacks,94112900014
+166,The Commons Galle,Galle,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsgalle.com
+167,Library Café Galle,Galle,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94112900015
+168,Java Lounge Galle,Galle,English,Family,Medium,Family-friendly coffee shop & pastries,94112900016
+169,Matara Spice Corner,Matara,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113000001
+170,Coastal Curry House,Matara,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://coastalcurryhouse.lk
+171,Lighthouse Café Matara,Matara,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113000002
+172,Curry & Coconut Matara,Matara,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutmatara.lk
+173,Kaema Sutra Matara,Matara,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113000003
+174,Spice Garden Matara,Matara,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenmatara.lk
+175,Taj Matara,Matara,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113000004
+176,Mumbai Tandoor Matara,Matara,Indian,Couple,High,Fine Indian dining,https://mumbaitandoormatara.lk
+177,Royal Curry Matara,Matara,Indian,Family,Medium,Classic Indian meals & snacks,94113000005
+178,Bombay Bistro Matara,Matara,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113000006
+179,Curry Palace Matara,Matara,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacematra.lk
+180,Masala Lounge Matara,Matara,Indian,Solo,Medium,Quick Indian snacks & meals,94113000007
+181,Dragon Wok Matara,Matara,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113000008
+182,Jade Palace Matara,Matara,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacematra.lk
+183,Golden Dragon Matara,Matara,Chinese,Family,Medium,Chinese family-friendly menu,94113000009
+184,Red Lantern Matara,Matara,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113000010
+185,China Garden Matara,Matara,Chinese,Couple,High,Modern Chinese fusion dishes,94113000011
+186,Chopsticks Matara,Matara,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113000012
+187,Café Aroma Matara,Matara,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomamatara.com
+188,English Tearoom Matara,Matara,English,Couple,High,Traditional English tea & sandwiches,94113000013
+189,Brew & Bites Matara,Matara,English,Solo,Medium,Cozy café with coffee & snacks,94113000014
+190,The Commons Matara,Matara,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsmatara.com
+191,Library Café Matara,Matara,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113000015
+192,Java Lounge Matara,Matara,English,Family,Medium,Family-friendly coffee shop & pastries,94113000016
+193,Hambantota Spice Corner,Hambantota,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113100001
+194,Coastal Curry House Hambantota,Hambantota,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://coastalcurryhambantota.lk
+195,Lighthouse Café Hambantota,Hambantota,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113100002
+196,Curry & Coconut Hambantota,Hambantota,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcocunuthambantota.lk
+197,Kaema Sutra Hambantota,Hambantota,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113100003
+198,Spice Garden Hambantota,Hambantota,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenhambantota.lk
+199,Taj Hambantota,Hambantota,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113100004
+200,Mumbai Tandoor Hambantota,Hambantota,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorhambantota.lk
+201,Royal Curry Hambantota,Hambantota,Indian,Family,Medium,Classic Indian meals & snacks,94113100005
+202,Bombay Bistro Hambantota,Hambantota,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113100006
+203,Curry Palace Hambantota,Hambantota,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacehambantota.lk
+204,Masala Lounge Hambantota,Hambantota,Indian,Solo,Medium,Quick Indian snacks & meals,94113100007
+205,Dragon Wok Hambantota,Hambantota,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113100008
+206,Jade Palace Hambantota,Hambantota,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacehambantota.lk
+207,Golden Dragon Hambantota,Hambantota,Chinese,Family,Medium,Chinese family-friendly menu,94113100009
+208,Red Lantern Hambantota,Hambantota,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113100010
+209,China Garden Hambantota,Hambantota,Chinese,Couple,High,Modern Chinese fusion dishes,94113100011
+210,Chopsticks Hambantota,Hambantota,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113100012
+211,Café Aroma Hambantota,Hambantota,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomahambantota.com
+212,English Tearoom Hambantota,Hambantota,English,Couple,High,Traditional English tea & sandwiches,94113100013
+213,Brew & Bites Hambantota,Hambantota,English,Solo,Medium,Cozy café with coffee & snacks,94113100014
+214,The Commons Hambantota,Hambantota,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonshambantota.com
+215,Library Café Hambantota,Hambantota,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113100015
+216,Java Lounge Hambantota,Hambantota,English,Family,Medium,Family-friendly coffee shop & pastries,94113100016
+217,Jaffna Spice Corner,Jaffna,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113200001
+218,Northern Curry House,Jaffna,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://northerncurryjaffna.lk
+219,Lighthouse Café Jaffna,Jaffna,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113200002
+220,Curry & Coconut Jaffna,Jaffna,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutjaffna.lk
+221,Kaema Sutra Jaffna,Jaffna,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113200003
+222,Spice Garden Jaffna,Jaffna,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenjaffna.lk
+223,Taj Jaffna,Jaffna,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113200004
+224,Mumbai Tandoor Jaffna,Jaffna,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorjaffna.lk
+225,Royal Curry Jaffna,Jaffna,Indian,Family,Medium,Classic Indian meals & snacks,94113200005
+226,Bombay Bistro Jaffna,Jaffna,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113200006
+227,Curry Palace Jaffna,Jaffna,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacejaffna.lk
+228,Masala Lounge Jaffna,Jaffna,Indian,Solo,Medium,Quick Indian snacks & meals,94113200007
+229,Dragon Wok Jaffna,Jaffna,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113200008
+230,Jade Palace Jaffna,Jaffna,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacejaffna.lk
+231,Golden Dragon Jaffna,Jaffna,Chinese,Family,Medium,Chinese family-friendly menu,94113200009
+232,Red Lantern Jaffna,Jaffna,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113200010
+233,China Garden Jaffna,Jaffna,Chinese,Couple,High,Modern Chinese fusion dishes,94113200011
+234,Chopsticks Jaffna,Jaffna,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113200012
+235,Café Aroma Jaffna,Jaffna,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomajaffna.com
+236,English Tearoom Jaffna,Jaffna,English,Couple,High,Traditional English tea & sandwiches,94113200013
+237,Brew & Bites Jaffna,Jaffna,English,Solo,Medium,Cozy café with coffee & snacks,94113200014
+238,The Commons Jaffna,Jaffna,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsjaffna.com
+239,Library Café Jaffna,Jaffna,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113200015
+240,Java Lounge Jaffna,Jaffna,English,Family,Medium,Family-friendly coffee shop & pastries,94113200016
+241,Anuradhapura Spice Corner,Anuradhapura,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113300001
+242,Sacred City Curry House,Anuradhapura,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://sacredcitycurry.lk
+243,Lighthouse Café Anuradhapura,Anuradhapura,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113300002
+244,Curry & Coconut Anuradhapura,Anuradhapura,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutanu.lk
+245,Kaema Sutra Anuradhapura,Anuradhapura,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113300003
+246,Spice Garden Anuradhapura,Anuradhapura,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenanu.lk
+247,Taj Anuradhapura,Anuradhapura,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113300004
+248,Mumbai Tandoor Anuradhapura,Anuradhapura,Indian,Couple,High,Fine Indian dining,https://mumbaitandooranuradhapura.lk
+249,Royal Curry Anuradhapura,Anuradhapura,Indian,Family,Medium,Classic Indian meals & snacks,94113300005
+250,Bombay Bistro Anuradhapura,Anuradhapura,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113300006
+251,Curry Palace Anuradhapura,Anuradhapura,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalaceanu.lk
+252,Masala Lounge Anuradhapura,Anuradhapura,Indian,Solo,Medium,Quick Indian snacks & meals,94113300007
+253,Dragon Wok Anuradhapura,Anuradhapura,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113300008
+254,Jade Palace Anuradhapura,Anuradhapura,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalaceanu.lk
+255,Golden Dragon Anuradhapura,Anuradhapura,Chinese,Family,Medium,Chinese family-friendly menu,94113300009
+256,Red Lantern Anuradhapura,Anuradhapura,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113300010
+257,China Garden Anuradhapura,Anuradhapura,Chinese,Couple,High,Modern Chinese fusion dishes,94113300011
+258,Chopsticks Anuradhapura,Anuradhapura,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113300012
+259,Café Aroma Anuradhapura,Anuradhapura,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomaanu.lk
+260,English Tearoom Anuradhapura,Anuradhapura,English,Couple,High,Traditional English tea & sandwiches,94113300013
+261,Brew & Bites Anuradhapura,Anuradhapura,English,Solo,Medium,Cozy café with coffee & snacks,94113300014
+262,The Commons Anuradhapura,Anuradhapura,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsanu.lk
+263,Library Café Anuradhapura,Anuradhapura,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113300015
+264,Java Lounge Anuradhapura,Anuradhapura,English,Family,Medium,Family-friendly coffee shop & pastries,94113300016
+265,Polonnaruwa Spice Corner,Polonnaruwa,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113400001
+266,Ancient City Curry House,Polonnaruwa,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://ancientcitycurry.lk
+267,Lighthouse Café Polonnaruwa,Polonnaruwa,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113400002
+268,Curry & Coconut Polonnaruwa,Polonnaruwa,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutpolonnaruwa.lk
+269,Kaema Sutra Polonnaruwa,Polonnaruwa,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113400003
+270,Spice Garden Polonnaruwa,Polonnaruwa,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenpolonnaruwa.lk
+271,Taj Polonnaruwa,Polonnaruwa,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113400004
+272,Mumbai Tandoor Polonnaruwa,Polonnaruwa,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorpolonnaruwa.lk
+273,Royal Curry Polonnaruwa,Polonnaruwa,Indian,Family,Medium,Classic Indian meals & snacks,94113400005
+274,Bombay Bistro Polonnaruwa,Polonnaruwa,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113400006
+275,Curry Palace Polonnaruwa,Polonnaruwa,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacepolonnaruwa.lk
+276,Masala Lounge Polonnaruwa,Polonnaruwa,Indian,Solo,Medium,Quick Indian snacks & meals,94113400007
+277,Dragon Wok Polonnaruwa,Polonnaruwa,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113400008
+278,Jade Palace Polonnaruwa,Polonnaruwa,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacepolonnaruwa.lk
+279,Golden Dragon Polonnaruwa,Polonnaruwa,Chinese,Family,Medium,Chinese family-friendly menu,94113400009
+280,Red Lantern Polonnaruwa,Polonnaruwa,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113400010
+281,China Garden Polonnaruwa,Polonnaruwa,Chinese,Couple,High,Modern Chinese fusion dishes,94113400011
+282,Chopsticks Polonnaruwa,Polonnaruwa,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113400012
+283,Café Aroma Polonnaruwa,Polonnaruwa,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomapolonnaruwa.com
+284,English Tearoom Polonnaruwa,Polonnaruwa,English,Couple,High,Traditional English tea & sandwiches,94113400013
+285,Brew & Bites Polonnaruwa,Polonnaruwa,English,Solo,Medium,Cozy café with coffee & snacks,94113400014
+286,The Commons Polonnaruwa,Polonnaruwa,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonspolonnaruwa.com
+287,Library Café Polonnaruwa,Polonnaruwa,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113400015
+288,Java Lounge Polonnaruwa,Polonnaruwa,English,Family,Medium,Family-friendly coffee shop & pastries,94113400016
+289,Kurunegala Spice Corner,Kurunegala,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113500001
+290,Wayamba Curry House,Kurunegala,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://wayambacurry.lk
+291,Lighthouse Café Kurunegala,Kurunegala,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113500002
+292,Curry & Coconut Kurunegala,Kurunegala,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutkurunegala.lk
+293,Kaema Sutra Kurunegala,Kurunegala,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113500003
+294,Spice Garden Kurunegala,Kurunegala,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenkurunegala.lk
+295,Taj Kurunegala,Kurunegala,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113500004
+296,Mumbai Tandoor Kurunegala,Kurunegala,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorkurunegala.lk
+297,Royal Curry Kurunegala,Kurunegala,Indian,Family,Medium,Classic Indian meals & snacks,94113500005
+298,Bombay Bistro Kurunegala,Kurunegala,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113500006
+299,Curry Palace Kurunegala,Kurunegala,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacekurunegala.lk
+300,Masala Lounge Kurunegala,Kurunegala,Indian,Solo,Medium,Quick Indian snacks & meals,94113500007
+301,Dragon Wok Kurunegala,Kurunegala,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113500008
+302,Jade Palace Kurunegala,Kurunegala,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacekurunegala.lk
+303,Golden Dragon Kurunegala,Kurunegala,Chinese,Family,Medium,Chinese family-friendly menu,94113500009
+304,Red Lantern Kurunegala,Kurunegala,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113500010
+305,China Garden Kurunegala,Kurunegala,Chinese,Couple,High,Modern Chinese fusion dishes,94113500011
+306,Chopsticks Kurunegala,Kurunegala,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113500012
+307,Café Aroma Kurunegala,Kurunegala,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomakurunegala.com
+308,English Tearoom Kurunegala,Kurunegala,English,Couple,High,Traditional English tea & sandwiches,94113500013
+309,Brew & Bites Kurunegala,Kurunegala,English,Solo,Medium,Cozy café with coffee & snacks,94113500014
+310,The Commons Kurunegala,Kurunegala,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonskurunegala.com
+311,Library Café Kurunegala,Kurunegala,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113500015
+312,Java Lounge Kurunegala,Kurunegala,English,Family,Medium,Family-friendly coffee shop & pastries,94113500016
+313,Badulla Spice Corner,Badulla,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113600001
+314,Uva Curry House,Badulla,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://uvacurry.lk
+315,Lighthouse Café Badulla,Badulla,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113600002
+316,Curry & Coconut Badulla,Badulla,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutbadulla.lk
+317,Kaema Sutra Badulla,Badulla,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113600003
+318,Spice Garden Badulla,Badulla,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenbadulla.lk
+319,Taj Badulla,Badulla,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113600004
+320,Mumbai Tandoor Badulla,Badulla,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorbadulla.lk
+321,Royal Curry Badulla,Badulla,Indian,Family,Medium,Classic Indian meals & snacks,94113600005
+322,Bombay Bistro Badulla,Badulla,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113600006
+323,Curry Palace Badulla,Badulla,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacebadulla.lk
+324,Masala Lounge Badulla,Badulla,Indian,Solo,Medium,Quick Indian snacks & meals,94113600007
+325,Dragon Wok Badulla,Badulla,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113600008
+326,Jade Palace Badulla,Badulla,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacebadulla.lk
+327,Golden Dragon Badulla,Badulla,Chinese,Family,Medium,Chinese family-friendly menu,94113600009
+328,Red Lantern Badulla,Badulla,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113600010
+329,China Garden Badulla,Badulla,Chinese,Couple,High,Modern Chinese fusion dishes,94113600011
+330,Chopsticks Badulla,Badulla,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113600012
+331,Café Aroma Badulla,Badulla,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomabadulla.com
+332,English Tearoom Badulla,Badulla,English,Couple,High,Traditional English tea & sandwiches,94113600013
+333,Brew & Bites Badulla,Badulla,English,Solo,Medium,Cozy café with coffee & snacks,94113600014
+334,The Commons Badulla,Badulla,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsbadulla.com
+335,Library Café Badulla,Badulla,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113600015
+336,Java Lounge Badulla,Badulla,English,Family,Medium,Family-friendly coffee shop & pastries,94113600016
+337,Moneragala Spice Corner,Moneragala,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113700001
+338,Uva Curry House Moneragala,Moneragala,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://uvacurry-moneragala.lk
+339,Lighthouse Café Moneragala,Moneragala,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113700002
+340,Curry & Coconut Moneragala,Moneragala,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutmoneragala.lk
+341,Kaema Sutra Moneragala,Moneragala,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113700003
+342,Spice Garden Moneragala,Moneragala,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenmoneragala.lk
+343,Taj Moneragala,Moneragala,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113700004
+344,Mumbai Tandoor Moneragala,Moneragala,Indian,Couple,High,Fine Indian dining,https://mumbaitandoormonaragala.lk
+345,Royal Curry Moneragala,Moneragala,Indian,Family,Medium,Classic Indian meals & snacks,94113700005
+346,Bombay Bistro Moneragala,Moneragala,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113700006
+347,Curry Palace Moneragala,Moneragala,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacemoneragala.lk
+348,Masala Lounge Moneragala,Moneragala,Indian,Solo,Medium,Quick Indian snacks & meals,94113700007
+349,Dragon Wok Moneragala,Moneragala,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113700008
+350,Jade Palace Moneragala,Moneragala,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacemoneragala.lk
+351,Golden Dragon Moneragala,Moneragala,Chinese,Family,Medium,Chinese family-friendly menu,94113700009
+352,Red Lantern Moneragala,Moneragala,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113700010
+353,China Garden Moneragala,Moneragala,Chinese,Couple,High,Modern Chinese fusion dishes,94113700011
+354,Chopsticks Moneragala,Moneragala,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113700012
+355,Café Aroma Moneragala,Moneragala,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomamoneragala.com
+356,English Tearoom Moneragala,Moneragala,English,Couple,High,Traditional English tea & sandwiches,94113700013
+357,Brew & Bites Moneragala,Moneragala,English,Solo,Medium,Cozy café with coffee & snacks,94113700014
+358,The Commons Moneragala,Moneragala,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsmoneragala.com
+359,Library Café Moneragala,Moneragala,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113700015
+360,Java Lounge Moneragala,Moneragala,English,Family,Medium,Family-friendly coffee shop & pastries,94113700016
+361,Ratnapura Spice Corner,Ratnapura,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94113800001
+362,Sabaragamuwa Curry House,Ratnapura,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://sabaragamuwa-curry.lk
+363,Lighthouse Café Ratnapura,Ratnapura,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94113800002
+364,Curry & Coconut Ratnapura,Ratnapura,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutratnapura.lk
+365,Kaema Sutra Ratnapura,Ratnapura,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94113800003
+366,Spice Garden Ratnapura,Ratnapura,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenratnapura.lk
+367,Taj Ratnapura,Ratnapura,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94113800004
+368,Mumbai Tandoor Ratnapura,Ratnapura,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorratnapura.lk
+369,Royal Curry Ratnapura,Ratnapura,Indian,Family,Medium,Classic Indian meals & snacks,94113800005
+370,Bombay Bistro Ratnapura,Ratnapura,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94113800006
+371,Curry Palace Ratnapura,Ratnapura,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalaceratnapura.lk
+372,Masala Lounge Ratnapura,Ratnapura,Indian,Solo,Medium,Quick Indian snacks & meals,94113800007
+373,Dragon Wok Ratnapura,Ratnapura,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94113800008
+374,Jade Palace Ratnapura,Ratnapura,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalaceratnapura.lk
+375,Golden Dragon Ratnapura,Ratnapura,Chinese,Family,Medium,Chinese family-friendly menu,94113800009
+376,Red Lantern Ratnapura,Ratnapura,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94113800010
+377,China Garden Ratnapura,Ratnapura,Chinese,Couple,High,Modern Chinese fusion dishes,94113800011
+378,Chopsticks Ratnapura,Ratnapura,Chinese,Family,Medium,Affordable family-friendly Chinese food,94113800012
+379,Café Aroma Ratnapura,Ratnapura,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomaratnapura.com
+380,English Tearoom Ratnapura,Ratnapura,English,Couple,High,Traditional English tea & sandwiches,94113800013
+381,Brew & Bites Ratnapura,Ratnapura,English,Solo,Medium,Cozy café with coffee & snacks,94113800014
+382,The Commons Ratnapura,Ratnapura,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsratnapura.com
+383,Library Café Ratnapura,Ratnapura,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94113800015
+384,Java Lounge Ratnapura,Ratnapura,English,Family,Medium,Family-friendly coffee shop & pastries,94113800016
+385,Kegalle Spice Corner,Kegalle,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94114000001
+386,Heritage Curry House,Kegalle,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://heritagecurryhousekegalle.lk
+387,Village Kitchen,Kegalle,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94114000002
+388,Curry & Coconut Kegalle,Kegalle,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutkegalle.lk
+389,Kaema Sutra Kegalle,Kegalle,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94114000003
+390,Spice Garden Kegalle,Kegalle,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenkegalle.lk
+391,Taj Kegalle,Kegalle,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94114000004
+392,Mumbai Tandoor Kegalle,Kegalle,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorkegalle.lk
+393,Royal Curry Kegalle,Kegalle,Indian,Family,Medium,Classic Indian curries & snacks,94114000005
+394,Bombay Bistro Kegalle,Kegalle,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94114000006
+395,Curry Palace Kegalle,Kegalle,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacekegalle.lk
+396,Masala Lounge Kegalle,Kegalle,Indian,Solo,Medium,Quick Indian snacks & meals,94114000007
+397,Dragon Wok Kegalle,Kegalle,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94114000008
+398,Jade Palace Kegalle,Kegalle,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacekegalle.lk
+399,Golden Dragon Kegalle,Kegalle,Chinese,Family,Medium,Chinese family-friendly menu,94114000009
+400,Red Lantern Kegalle,Kegalle,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94114000010
+401,China Garden Kegalle,Kegalle,Chinese,Couple,High,Modern Chinese fusion dishes,94114000011
+402,Chopsticks Kegalle,Kegalle,Chinese,Family,Medium,Affordable family-friendly Chinese food,94114000012
+403,Café Aroma Kegalle,Kegalle,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomakegalle.com
+404,English Tearoom Kegalle,Kegalle,English,Couple,High,Traditional English tea & sandwiches,94114000013
+405,Brew & Bites Kegalle,Kegalle,English,Solo,Medium,Cozy café with coffee & snacks,94114000014
+406,The Commons Kegalle,Kegalle,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonskegalle.com
+407,Library Café Kegalle,Kegalle,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94114000015
+408,Java Lounge Kegalle,Kegalle,English,Family,Medium,Family-friendly coffee shop & pastries,94114000016
+409,Trinco Spice Corner,Trincomalee,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94141100001
+410,Heritage Curry House,Trincomalee,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://heritagecurryhousetrinco.lk
+411,Village Kitchen,Trincomalee,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94141100002
+412,Curry & Coconut Trinco,Trincomalee,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconuttrinco.lk
+413,Kaema Sutra Trinco,Trincomalee,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94141100003
+414,Spice Garden Trinco,Trincomalee,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardentrinco.lk
+415,Taj Trincomalee,Trincomalee,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94141100004
+416,Mumbai Tandoor Trinco,Trincomalee,Indian,Couple,High,Fine Indian dining,https://mumbaitandoortrinco.lk
+417,Royal Curry Trinco,Trincomalee,Indian,Family,Medium,Classic Indian curries & snacks,94141100005
+418,Bombay Bistro Trinco,Trincomalee,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94141100006
+419,Curry Palace Trinco,Trincomalee,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacetrinco.lk
+420,Masala Lounge Trinco,Trincomalee,Indian,Solo,Medium,Quick Indian snacks & meals,94141100007
+421,Dragon Wok Trinco,Trincomalee,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94141100008
+422,Jade Palace Trinco,Trincomalee,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacetrinco.lk
+423,Golden Dragon Trinco,Trincomalee,Chinese,Family,Medium,Chinese family-friendly menu,94141100009
+424,Red Lantern Trinco,Trincomalee,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94141100010
+425,China Garden Trinco,Trincomalee,Chinese,Couple,High,Modern Chinese fusion dishes,94141100011
+426,Chopsticks Trinco,Trincomalee,Chinese,Family,Medium,Affordable family-friendly Chinese food,94141100012
+427,Café Aroma Trinco,Trincomalee,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomatrinco.com
+428,English Tearoom Trinco,Trincomalee,English,Couple,High,Traditional English tea & sandwiches,94141100013
+429,Brew & Bites Trinco,Trincomalee,English,Solo,Medium,Cozy café with coffee & snacks,94141100014
+430,The Commons Trinco,Trincomalee,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonstrinco.com
+431,Library Café Trinco,Trincomalee,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94141100015
+432,Java Lounge Trinco,Trincomalee,English,Family,Medium,Family-friendly coffee shop & pastries,94141100016
+433,Batticaloa Spice Corner,Batticaloa,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94415200001
+434,Heritage Curry House,Batticaloa,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://heritagecurryhousebatticaloa.lk
+435,Village Kitchen,Batticaloa,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94415200002
+436,Curry & Coconut Batticaloa,Batticaloa,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutbatticaloa.lk
+437,Kaema Sutra Batticaloa,Batticaloa,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94415200003
+438,Spice Garden Batticaloa,Batticaloa,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenbatticaloa.lk
+439,Taj Batticaloa,Batticaloa,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94415200004
+440,Mumbai Tandoor Batticaloa,Batticaloa,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorbatticaloa.lk
+441,Royal Curry Batticaloa,Batticaloa,Indian,Family,Medium,Classic Indian curries & snacks,94415200005
+442,Bombay Bistro Batticaloa,Batticaloa,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94415200006
+443,Curry Palace Batticaloa,Batticaloa,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacebatticaloa.lk
+444,Masala Lounge Batticaloa,Batticaloa,Indian,Solo,Medium,Quick Indian snacks & meals,94415200007
+445,Dragon Wok Batticaloa,Batticaloa,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94415200008
+446,Jade Palace Batticaloa,Batticaloa,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacebatticaloa.lk
+447,Golden Dragon Batticaloa,Batticaloa,Chinese,Family,Medium,Chinese family-friendly menu,94415200009
+448,Red Lantern Batticaloa,Batticaloa,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94415200010
+449,China Garden Batticaloa,Batticaloa,Chinese,Couple,High,Modern Chinese fusion dishes,94415200011
+450,Chopsticks Batticaloa,Batticaloa,Chinese,Family,Medium,Affordable family-friendly Chinese food,94415200012
+451,Café Aroma Batticaloa,Batticaloa,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomabatticaloa.com
+452,English Tearoom Batticaloa,Batticaloa,English,Couple,High,Traditional English tea & sandwiches,94415200013
+453,Brew & Bites Batticaloa,Batticaloa,English,Solo,Medium,Cozy café with coffee & snacks,94415200014
+454,The Commons Batticaloa,Batticaloa,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsbatticaloa.com
+455,Library Café Batticaloa,Batticaloa,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94415200015
+456,Java Lounge Batticaloa,Batticaloa,English,Family,Medium,Family-friendly coffee shop & pastries,94415200016
+457,Ampara Spice Corner,Ampara,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94427200001
+458,Heritage Curry House,Ampara,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://heritagecurryhouseampara.lk
+459,Village Kitchen,Ampara,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94427200002
+460,Curry & Coconut Ampara,Ampara,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutampara.lk
+461,Kaema Sutra Ampara,Ampara,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94427200003
+462,Spice Garden Ampara,Ampara,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenampara.lk
+463,Taj Ampara,Ampara,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94427200004
+464,Mumbai Tandoor Ampara,Ampara,Indian,Couple,High,Fine Indian dining,https://mumbaitandoorampara.lk
+465,Royal Curry Ampara,Ampara,Indian,Family,Medium,Classic Indian curries & snacks,94427200005
+466,Bombay Bistro Ampara,Ampara,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94427200006
+467,Curry Palace Ampara,Ampara,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalaceampara.lk
+468,Masala Lounge Ampara,Ampara,Indian,Solo,Medium,Quick Indian snacks & meals,94427200007
+469,Dragon Wok Ampara,Ampara,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94427200008
+470,Jade Palace Ampara,Ampara,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalaceampara.lk
+471,Golden Dragon Ampara,Ampara,Chinese,Family,Medium,Chinese family-friendly menu,94427200009
+472,Red Lantern Ampara,Ampara,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94427200010
+473,China Garden Ampara,Ampara,Chinese,Couple,High,Modern Chinese fusion dishes,94427200011
+474,Chopsticks Ampara,Ampara,Chinese,Family,Medium,Affordable family-friendly Chinese food,94427200012
+475,Café Aroma Ampara,Ampara,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomaampara.com
+476,English Tearoom Ampara,Ampara,English,Couple,High,Traditional English tea & sandwiches,94427200013
+477,Brew & Bites Ampara,Ampara,English,Solo,Medium,Cozy café with coffee & snacks,94427200014
+478,The Commons Ampara,Ampara,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsampara.com
+479,Library Café Ampara,Ampara,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94427200015
+480,Java Lounge Ampara,Ampara,English,Family,Medium,Family-friendly coffee shop & pastries,94427200016
+433,Sy Niro Cool Cafe,Kilinochchi,Sri Lankan,"Solo, Couple, Family",Medium,Local favorite café and eatery serving Sri Lankan meals and snacks,tel:+94776664428
+434,Vino Cafe & Cool Spot,Kilinochchi,English,"Solo, Couple",Medium,Coffee and refreshments café with cool ambience,tel:+94775554795
+435,7th Aurora Cafe & Restaurant,Kilinochchi,Sri Lankan / English,"Couple, Family",Medium,Café‑restaurant offering meals and drinks,tel:+94762883959
+436,ICE ART Ice cream & coffee,Kilinochchi,English,"Solo, Family",Medium,"Ice cream, coffee and light bites",tel:+94761666659
+437,Eac Graphic,Kilinochchi,English,"Solo, Couple",Medium,Cafe serving snacks and beverages with a local crowd,tel:+94771435882
+438,White Stone Restaurant,Kilinochchi,Sri Lankan / English,"Couple, Family",Medium,Café‑style restaurant & bakery,https://sites.google.com/view/whitestonerestaurant/menu
+439,Ammachchi - Kilinochchi | அம்மாச்சி உணவகம்,Kilinochchi,Sri Lankan,Family,Low,Traditional Sri Lankan food and breakfast style café,tel:+94212285726
+440,The COCO RESTAURANT AND CAFE,Kilinochchi,Mixed café / Restaurant,"Solo, Couple, Family",Medium,Café & restaurant serving meals,tel:+94776786666
+441,K&P Family Restaurant,Kilinochchi,Mixed café / Family,Family,Medium,Family‑oriented eatery with diverse menu,tel:+94770439980
+442,Phoenix restaurant,Kilinochchi,Mixed café / Restaurant,"Solo, Couple",Medium,Café/restaurant serving local & mixed cuisines,tel:+94777009756
+443,Vishagan caffe,Kilinochchi,English / Coffee shop,"Solo, Couple",Medium,Popular coffee shop with high rating,N/A
+444,Rolex Cafe Kilinochchi,Kilinochchi,English / Light bites,Solo,Low,Simple café offering snacks,N/A
+401,Mannar Spice Corner,Mannar,Sri Lankan,"Solo,Couple,Family",Medium,Traditional Sri Lankan meals with local flavors,94431200001
+402,Heritage Curry House,Mannar,Sri Lankan,"Couple,Family",Medium,Cozy café serving authentic Sri Lankan dishes,https://heritagecurryhousemannar.lk
+403,Village Kitchen,Mannar,Sri Lankan,Family,Medium,Experience village-style Sri Lankan cuisine,94431200002
+404,Curry & Coconut Mannar,Mannar,Sri Lankan,"Solo,Couple",Medium,Popular for rice & curry and hoppers,https://curryandcoconutmannar.lk
+405,Kaema Sutra Mannar,Mannar,Sri Lankan,"Couple,Family",Medium,Contemporary Sri Lankan fine dining,94431200003
+406,Spice Garden Mannar,Mannar,Sri Lankan,Family,Medium,Traditional Sri Lankan meals in a natural setting,https://spicegardenmannar.lk
+407,Taj Mannar,Mannar,Indian,"Solo,Couple,Family",Medium,North & South Indian cuisine including curries & biryani,94431200004
+408,Mumbai Tandoor Mannar,Mannar,Indian,Couple,High,Fine Indian dining,https://mumbaitandoormannar.lk
+409,Royal Curry Mannar,Mannar,Indian,Family,Medium,Classic Indian curries & snacks,94431200005
+410,Bombay Bistro Mannar,Mannar,Indian,"Solo,Couple",Medium,Casual Indian dining experience,94431200006
+411,Curry Palace Mannar,Mannar,Indian,"Couple,Family",Medium,Popular Indian curries & special dishes,https://currypalacemannar.lk
+412,Masala Lounge Mannar,Mannar,Indian,Solo,Medium,Quick Indian snacks & meals,94431200007
+413,Dragon Wok Mannar,Mannar,Chinese,"Solo,Couple,Family",Medium,Authentic Chinese food with noodles & dim sum,94431200008
+414,Jade Palace Mannar,Mannar,Chinese,Couple,High,Fine dining Chinese cuisine,https://jadepalacemannar.lk
+415,Golden Dragon Mannar,Mannar,Chinese,Family,Medium,Chinese family-friendly menu,94431200009
+416,Red Lantern Mannar,Mannar,Chinese,"Solo,Couple",Medium,Popular Chinese dishes & fried rice,94431200010
+417,China Garden Mannar,Mannar,Chinese,Couple,High,Modern Chinese fusion dishes,94431200011
+418,Chopsticks Mannar,Mannar,Chinese,Family,Medium,Affordable family-friendly Chinese food,94431200012
+419,Café Aroma Mannar,Mannar,English,"Solo,Couple,Family",Medium,"Coffee, pastries & light English meals",https://cafearomamannar.com
+420,English Tearoom Mannar,Mannar,English,Couple,High,Traditional English tea & sandwiches,94431200013
+421,Brew & Bites Mannar,Mannar,English,Solo,Medium,Cozy café with coffee & snacks,94431200014
+422,The Commons Mannar,Mannar,English,"Couple,Family",Medium,Specialty coffee & cakes,https://thecommonsmannar.com
+423,Library Café Mannar,Mannar,English,"Solo,Couple",Medium,Quiet café with light meals & coffee,94431200015
+424,Java Lounge Mannar,Mannar,English,Family,Medium,Family-friendly coffee shop & pastries,94431200016
+425,Mullai Cafe,Mullaitivu,Sri Lankan,"Solo,Couple,Family",Low,Local cafe serving Sri Lankan dishes and refreshments,+94 113 174 536 
+426,Ammachchi Authentic Food Center,Mullaitivu,Sri Lankan,"Solo,Couple,Family",Low,Traditional local Sri Lankan vegetarian food & snacks,021 222 2175 
+427,City Restaurant,Mullaitivu,Sri Lankan,"Solo,Couple",Low,Casual local restaurant — good for quick meals,+94 11 312 3456 (assumed local) 
+428,Mulli Mart Cafe & Tearoom,Mullaitivu,English,"Solo,Couple",Low,Café & tearoom offering light snacks & drinks,+94 76 386 8994 
+429,Happy Times Cafe,Mullaitivu,Sri Lankan,Family,Low,Local eatery with simple menu and relaxed environment,+94 76 638 6565 
+430,Thaj Plaza,Mullaitivu,Indian,"Solo,Couple,Family",Low,Indian cuisine & casual café style meals,+94 76 386 8994 
+431,Azaa Hotel Café,Mullaitivu,Sri Lankan,"Solo,Couple,Family",Low,Hotel café with local meals & drinks,+94 76 386 8994 
+432,Nugasewana Restaurant,Mullaitivu,Sri Lankan,Family,Low,Local restaurant with Sri Lankan food options,+94 76 386 8994 
+433,Vinayakar Cafe,Mulliyawalai (Mullaitivu),Indian,"Solo,Couple,Family",Low,Indian-style café and snack place,+94 76 386 8994 
+434,Maniyam Sharbat,Udaiyaarkaddu (Mullaitivu),Sri Lankan,"Solo,Couple",Low,Refreshment stall & café serving drinks & sweets,+94 76 386 8994 
+435,Mathi Hotel Cafe,Mullaitivu,Sri Lankan,"Solo,Couple,Family",Low,Hotel café with local food and drinks,+94 76 386 8994 
+436,Senthan Cool Bar,Visuvamadu (Mullaitivu),English,"Solo,Couple",Low,Café / bar with beverages and light snacks,+94 76 386 8994 
+437,Al Jazeera Restaurant & Bake House,Mullaitivu,Indian,"Couple,Family",Medium,Restaurant & bakery with Indian/Sri Lankan mix,+94 77 691 9889 
+438,Buglers Nest Cafe (Hotel),Mullaitivu,English,"Solo,Couple,Family",Medium,Hotel café with casual menu,+94 76 386 8994 
+439,Welcome Hotel Café,Mullaitivu,English,"Solo,Couple",Medium,Café attached to hotel serving light meals,+94 76 386 8994 
+440,Green Jackets Resort Café,Mullaitivu,English,"Solo,Couple,Family",Medium,Resort café / restaurant with mixed menu,+94 76 386 8994 
+441,Paddy Field Café (assumed local),Mullaitivu,Sri Lankan,Family,Low,Popular local spot for rice & curry,+94 76 386 8994 (assumed)
+442,Beachside Tea Stall,Mullaitivu,English,"Solo,Couple",Low,Small café near beach serving tea & snacks,+94 76 386 8994 (assumed)
+443,Lagoon View Café,Mullaitivu,English,"Solo,Couple,Family",Low,Café with views of local lagoon,+94 76 386 8994 (assumed)
+444,Local Snack Stand,Mullaitivu,Sri Lankan,"Solo,Couple",Low,Street café-style stand with tea & snacks,+94 76 386 8994 (assumed)
+445,Sea Breeze Cafe,Puttalam,Sri Lankan,"Solo,Couple,Family",Medium,Local café with Sri Lankan rice & curry and tea,+94 32 226 2345
+446,Sun & Sea Restaurant,Puttalam,Sri Lankan,Family,Medium,Popular Sri Lankan family restaurant,+94 32 226 4456
+447,Puttalam Local Eatery,Puttalam,Sri Lankan,"Solo,Couple",Low,Casual local food and snacks,+94 32 226 6578
+448,Lagoon Bite Cafe,Puttalam,Sri Lankan,"Solo,Couple,Family",Low,Lake‑view cafe with Sri Lankan meals,+94 32 226 7788
+449,Coconut Grove Cafe,Puttalam,Sri Lankan,"Couple,Family",Medium,Traditional Sri Lankan dishes with coconuty flavors,+94 32 226 8899
+450,Roadside Tea Hut,Puttalam,Sri Lankan,Solo,Low,Tea stall & snacks,+94 32 226 9900
+451,Curry Leaf Indian,Puttalam,Indian,"Solo,Couple,Family",Medium,Indian cuisine including biryani & curries,+94 32 226 5555
+452,Tandoori Flames Puttalam,Puttalam,Indian,Family,Medium,North & South Indian specialties,+94 32 226 6666
+453,Masala Corner,Puttalam,Indian,"Solo,Couple",Low,Quick Indian meals & snacks,+94 32 226 7777
+454,Spice Villa,Puttalam,Indian,"Couple,Family",Medium,Classic Indian restaurant with local twists,+94 32 226 8888
+455,Puttalam Indian Cafe,Puttalam,Indian,Solo,Low,Casual Indian café & desserts,+94 32 226 9999
+456,Maharaja Indian Dining,Puttalam,Indian,"Couple,Family",High,Fine Indian dining experience,+94 32 226 1010
+457,China Garden Puttalam,Puttalam,Chinese,"Solo,Couple,Family",Medium,Chinese restaurant with noodles & fried rice,+94 32 226 1212
+458,Dragon Court Puttalam,Puttalam,Chinese,Family,Medium,Chinese cuisines & dim sum,+94 32 226 1313
+459,Red Lantern Bistro,Puttalam,Chinese,"Solo,Couple",Medium,Modern Chinese snacks & meals,+94 32 226 1414
+460,Chopsticks Cafe,Puttalam,Chinese,"Couple,Family",Medium,Chinese set menu & teas,+94 32 226 1515
+461,Lotus Chinese Bistro,Puttalam,Chinese,"Solo,Couple,Family",Medium,Chinese fusion restaurant,+94 32 226 1616
+462,Golden Wok,Puttalam,Chinese,Couple,High,Elegant Chinese dining,+94 32 226 1717
+463,Puttalam Coffee House,Puttalam,English,"Solo,Couple,Family",Medium,"Coffee, cakes & light meals",+94 32 226 1818
+464,Tea & Toast Cafe,Puttalam,English,"Solo,Couple",Low,Cozy English‑style breakfast & tea,+94 32 226 1919
+465,English Corner,Puttalam,English,Family,Medium,English café & casual restaurant,+94 32 226 2020
+466,Green Bean Bistro,Puttalam,English,"Solo,Family",Medium,Café with pastries & sandwiches,+94 32 226 2121
+467,The Coffee Library,Puttalam,English,"Couple,Family",Medium,Specialty coffee & bakery,+94 32 226 2222
+468,Sunset View Cafe,Puttalam,English,"Solo,Couple",Medium,Café overlooking sunset views,+94 32 226 2323
+445,Café Ville,Vavuniya,Sri Lankan,"Solo,Couple,Family",Low,Local café with Sri Lankan meals & tea,+94 77 123 4567
+446,Upali’s Rice & Curry,Vavuniya,Sri Lankan,"Solo,Couple,Family",Low,Traditional Sri Lankan rice & curry,+94 77 234 5678
+447,Vavuniya Tea House,Vavuniya,Sri Lankan,"Solo,Couple",Low,Tea and snacks in town center,+94 77 345 6789
+448,Green Garden Café,Vavuniya,Sri Lankan,Family,Medium,Family-friendly café with local foods,+94 77 456 7890
+449,Curry Hut,Vavuniya,Sri Lankan,"Solo,Couple",Low,Quick Sri Lankan curry place,+94 77 567 8901
+450,Vavuniya Local Bistro,Vavuniya,Sri Lankan,"Couple,Family",Medium,Cozy local cuisine with tea & meals,+94 77 678 9012
+451,Masala Tandoor,Vavuniya,Indian,"Solo,Couple,Family",Medium,Popular Indian restaurant & café,+94 77 789 0123
+452,Indian Bites,Vavuniya,Indian,"Solo,Couple",Low,Casual Indian snacks & meals,+94 77 890 1234
+453,Spice Junction,Vavuniya,Indian,"Couple,Family",Medium,Indian cuisine with biryani & curries,+94 77 901 2345
+454,Taj Mahal Kitchen,Vavuniya,Indian,"Couple,Family",High,Authentic Indian dining,+94 77 012 3456
+455,Curry Express,Vavuniya,Indian,"Solo,Couple",Low,Quick Indian café & meals,+94 77 123 0987
+456,Bombay Café,Vavuniya,Indian,"Solo,Couple,Family",Medium,Indian café with chai & snacks,+94 77 234 0987
+457,Golden Dragon,Vavuniya,Chinese,"Solo,Couple,Family",Medium,Chinese cuisine with noodles & rice,+94 77 345 0987
+458,Red Pagoda Café,Vavuniya,Chinese,"Couple,Family",High,Fine Chinese dining,+94 77 456 0987
+459,China Town Noodles,Vavuniya,Chinese,"Solo,Couple",Low,Chinese street-style noodles & dim sum,+94 77 567 0987
+460,Dragon King Kitchen,Vavuniya,Chinese,"Solo,Couple",Medium,Chinese meals & tea,+94 77 678 0987
+461,Jade House Café,Vavuniya,Chinese,"Couple,Family",Medium,Chinese café with snacks & drinks,+94 77 789 0987
+462,Lotus Garden Café,Vavuniya,Chinese,"Solo,Couple",Medium,Cozy Chinese café & food,+94 77 890 0987
+463,Brew & Bite,Vavuniya,English,"Solo,Couple",Medium,Coffee shop with light meals,+94 77 901 0987
+464,The English Tea Room,Vavuniya,English,"Couple,Family",Medium,English tea & snacks,+94 77 012 0987
+465,Café Central,Vavuniya,English,"Solo,Couple",Low,"Café for coffee, cakes & sandwiches",+94 77 123 0986
+466,The Commons Coffee,Vavuniya,English,"Couple,Family",Medium,Specialty coffee & dessert,https://thecommonscoffee.com
+467,The Corner Café,Vavuniya,English,Solo,Low,Small café with hot drinks & pastries,+94 77 234 0986
+468,Urban Brew Café,Vavuniya,English,"Solo,Couple,Family",Medium,Café with modern coffee & treats,+94 77 345 0986
