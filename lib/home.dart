@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:lanka_go/app_bar.dart';
+import 'package:lanka_go/widgets/app_bar.dart';
 import 'package:lanka_go/constance/colors.dart';
 import 'package:lanka_go/recommendation_form.dart';
 import 'package:lanka_go/stays_food_places_page.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'footer.dart';
 import 'tuk_service_page.dart';
 import 'itinerary_page.dart';
 import 'offline_mode_page.dart';
 import 'eco_score_page.dart';
-import 'suggestions_page.dart';
+import 'Lak_bot_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,11 +19,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  double ecoScore = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    loadEcoScore();
+  }
+
+  Future<void> loadEcoScore() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      ecoScore = prefs.getDouble("eco_score") ?? 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color.fromARGB(255, 245, 240, 220),
+
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(70),
         child: Appbar(),
@@ -34,7 +50,12 @@ class _HomePageState extends State<HomePage> {
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [kMainWhite, kPrimaryYellowLight],
+            colors: [
+              kMainWhite,
+              Color.fromARGB(255, 236, 232, 205),
+              Color.fromARGB(255, 236, 232, 205),
+              kMainWhite,
+            ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -45,15 +66,18 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(height: 5),
                 _buildGreeting(),
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
                 _buildRecommendationFormCard(),
-                const SizedBox(height: 25),
+                const SizedBox(height: 15),
+                Divider(color: Colors.brown.withOpacity(0.5), thickness: 1.5),
+                const SizedBox(height: 10),
                 _buildQuickAccess(),
                 const SizedBox(height: 25),
+                Divider(color: Colors.brown.withOpacity(0.5), thickness: 1.5),
+                const SizedBox(height: 10),
                 _buildEcoScoreCard(),
-                const SizedBox(height: 25),
-                _buildRecommendedSection(),
                 const SizedBox(height: 25),
                 _buildAIAssistantCard(),
               ],
@@ -69,15 +93,57 @@ class _HomePageState extends State<HomePage> {
   //  GREETING
 
   Widget _buildGreeting() {
-    return const Text(
-      "Welcome! , Dineth 👋",
-      style: TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.bold,
-        color: kOrangePrimary,
-        height: 1.3,
-        letterSpacing: 0.5,
-      ),
+    final hour = DateTime.now().hour;
+
+    String greeting;
+    IconData icon;
+
+    if (hour < 12) {
+      greeting = "Good Morning ";
+      icon = Icons.wb_sunny; 
+    } else if (hour < 17) {
+      greeting = "Good Afternoon";
+      icon = Icons.wb_twighlight; 
+    } else {
+      greeting = "Good Evening";
+      icon = Icons.nightlight_round; 
+    }
+
+    return Row(
+      children: [
+        Text(
+          "$greeting!",
+          style: const TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: kOrangePrimary,
+            height: 1.3,
+            letterSpacing: 0.5,
+            shadows: [
+              BoxShadow(
+                offset: const Offset(1, 2),
+                blurRadius: 4,
+                color: Colors.black26,
+              ),
+            ],
+          ),
+        ),
+
+        const SizedBox(width: 8),
+
+        Icon(
+          icon,
+          color: kOrangePrimary,
+          size: 28,
+          shadows: [
+            BoxShadow(
+              offset: const Offset(1, 2),
+              blurRadius: 4,
+              color: Colors.black26,
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -93,16 +159,20 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          border: Border.all(color: kPrimaryYellowLight, width: 1.5),
           gradient: const LinearGradient(
-            colors: [kPrimaryYellowLight, kBrownLight],
+            colors: [
+              kOrangePrimary,
+              Color.fromARGB(255, 246, 227, 101),
+              Color.fromARGB(255, 224, 207, 99),
+              kBrownLight,
+            ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(25),
           boxShadow: [
             BoxShadow(
-              color: kPrimaryYellowLight.withOpacity(0.4),
+              color: kTextDarkGray.withOpacity(0.4),
               blurRadius: 15,
               offset: const Offset(0, 8),
             ),
@@ -133,7 +203,7 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 12),
 
-            // Instruction 
+            // Instruction
             Container(
               padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
               decoration: BoxDecoration(
@@ -214,13 +284,16 @@ class _HomePageState extends State<HomePage> {
             _quickAccessButton('assets/my_itinerary.jpg', "My Itinerary", () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => ItineraryPage()),
+                MaterialPageRoute(
+                  builder: (_) =>
+                      ItineraryPage(places: [], stays: [], cafes: []),
+                ),
               );
             }),
             _quickAccessButton('assets/offline_mode.jpg', "Offline Mode", () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => OfflineModePage()),
+                MaterialPageRoute(builder: (_) => OfflinePage()),
               );
             }),
           ],
@@ -281,207 +354,167 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // ECO SCORE
-  Widget _buildEcoScoreCard() {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => EcoScorePage()),
-        );
-      },
-      child: Container(
-        padding: const EdgeInsets.all(18),
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xFFFFF176), Color(0xFFFFD54F)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.orange.withOpacity(0.3),
-              blurRadius: 12,
-              offset: const Offset(0, 6),
-            ),
-          ],
-        ),
-        child: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Eco Score 🌿",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-                color: Colors.brown,
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              "85",
-              style: TextStyle(
-                fontSize: 42,
-                color: Colors.green,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 5),
-            Text(
-              "Track sustainability | Green Level",
-              style: TextStyle(fontSize: 15, color: Colors.black87),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  // ECO SCORE CARD
 
-  // RECOMMENDED
-  Widget _buildRecommendedSection() {
+  Widget _buildEcoScoreCard() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+     crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Recommended for You",
+          "Calculate Your Eco Score ",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: Colors.brown,
+            color: kBtnGreen,
           ),
         ),
         const SizedBox(height: 12),
-        _recommendCard(
-          "Temple of Tooth",
-          "Sacred Buddhist temple in Kandy",
-          "Free Entry",
-          "4.8",
-          Colors.orangeAccent,
-        ),
-        _recommendCard(
-          "Mirissa Beach",
-          "Perfect for whale watching",
-          "\$25/day",
-          "4.9",
-          Colors.blueAccent,
-        ),
-        _recommendCard(
-          "Pettah Market",
-          "Bustling local market experience",
-          "Free Visit",
-          "4.6",
-          Colors.greenAccent,
+
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const EcoScorePage()),
+            ).then((_) {
+              loadEcoScore(); // refresh after returning
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color.fromARGB(143, 161, 234, 133),
+                  Color.fromARGB(227, 33, 133, 2),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color.fromARGB(255, 33, 45, 27).withOpacity(0.7),
+                  blurRadius: 12,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Eco Score 🌿",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Color.fromARGB(255, 73, 71, 71),
+                  ),
+                ),
+                const SizedBox(height: 10),
+        
+                Text(
+                  ecoScore.toStringAsFixed(0),
+                  style: const TextStyle(
+                    fontSize: 42,
+                    color: Color.fromARGB(255, 2, 86, 7),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+        
+                const SizedBox(height: 5),
+        
+                Text(
+                  ecoScore >= 70
+                      ? "Excellent 🌱 Green Traveler"
+                      : ecoScore >= 40
+                      ? "Moderat   🌿 Improve choices"
+                      : "Low Score 🌍  Try eco-friendly options",
+                  style: const TextStyle(fontSize: 15, color: Colors.black87),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );
   }
 
-  Widget _recommendCard(
-    String title,
-    String desc,
-    String price,
-    String rating,
-    Color color,
-  ) {
-    return Card(
-      elevation: 6,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      margin: const EdgeInsets.only(bottom: 14),
-      shadowColor: color.withOpacity(0.3),
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 12,
-        ),
-        leading: CircleAvatar(
-          backgroundColor: color,
-          radius: 26,
-          child: const Icon(Icons.location_on, color: Colors.white),
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(
+  Widget _buildAIAssistantCard() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Chat with LAK BOT",
+          style: TextStyle(
+            fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: Colors.brown,
+            color: kpurple
           ),
         ),
-        subtitle: Text(desc, style: const TextStyle(color: Colors.black87)),
-        trailing: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              price,
-              style: const TextStyle(
-                color: Colors.green,
-                fontWeight: FontWeight.bold,
+        const SizedBox(height: 12),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) =>   LakBot()),
+            );
+          },
+          child: Container(
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color.fromARGB(142, 117, 141, 188),
+                  kpurple,
+                ],
               ),
-            ),
-            const SizedBox(height: 4),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.star, color: Colors.amber, size: 16),
-                Text(rating),
+              borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color.fromARGB(255, 34, 29, 84).withOpacity(0.7),
+                  blurRadius: 10,
+                  offset: const Offset(0, 5),
+                ),
               ],
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAIAssistantCard() {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => SuggestionsPage()),
-        );
-      },
-      child: Container(
-        padding: const EdgeInsets.all(18),
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xFFFFE0B2), Color(0xFFFFCC80)],
+            child: const Row(
+              children: [
+                //lak bot image
+                ClipOval(
+                  child: Image(
+                    image: AssetImage('assets/lakbot.jpg'),
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+        
+                SizedBox(width: 16),
+                //Text
+                Column(
+                  children: [
+                    
+        
+                    Text(
+                      "Your AI Travel Assistant",
+                      style: TextStyle(
+                        fontSize: 22,
+                        color: kTextGray,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+        
+                    Text(
+                      "Ask me anything about your trip!",
+                      style: TextStyle(fontSize: 14, color: Colors.black87),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.orange.withOpacity(0.3),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
-            ),
-          ],
         ),
-        child: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "LAK BOT ASSISTANT 🤖",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.brown,
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              "Personalized suggestions based on your preferences for cultural sites and beaches.",
-              style: TextStyle(fontSize: 15, color: Colors.black87),
-            ),
-            SizedBox(height: 10),
-            Text(
-              "Tap to get suggestions →",
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: Colors.brown,
-              ),
-            ),
-          ],
-        ),
-      ),
+      ],
     );
   }
 }

@@ -124,7 +124,8 @@ class TukServicePage extends StatelessWidget {
     );
   }
 
-  // 🔹 Reusable Card (Image Version)
+  // reusable card widget for each tuk service
+
   Widget _buildServiceCard(
     BuildContext context, {
     required String imagePath,
@@ -208,7 +209,7 @@ class TukServicePage extends StatelessWidget {
     );
   }
 
-  // 🔹 Circle Button
+  //  Circle Button
   static Widget _circleButton(IconData icon, VoidCallback onTap) {
     return InkWell(
       onTap: onTap,

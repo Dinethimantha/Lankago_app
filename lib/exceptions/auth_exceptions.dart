@@ -1,5 +1,6 @@
 String mapFirebaseAuthExceptionCode(String errorCode) {
   switch (errorCode) {
+
     // signInWithEmailAndPassword
     case 'wrong-password':
       return 'The password is invalid or the account does not have a password set.';
@@ -23,7 +24,7 @@ case 'internal-error':
     case 'weak-password':
       return 'The password provided is not strong enough.';
 
-    
+  
 
     // signInWithEmailLink
     case 'expired-action-code':

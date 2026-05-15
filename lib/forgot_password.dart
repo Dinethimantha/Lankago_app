@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lanka_go/login.dart';
 import 'package:lanka_go/services/auth_services.dart';
-import 'new_password.dart'; // Import your NewPasswordPage
+import 'new_password.dart'; 
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});

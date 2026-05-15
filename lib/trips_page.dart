@@ -1,244 +1,214 @@
 import 'package:flutter/material.dart';
+import 'package:lanka_go/home.dart';
+import 'package:lanka_go/offline_mode_page.dart';
+import 'package:lanka_go/widgets/custom_appbar.dart';
+import 'package:lanka_go/constance/colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
-class RecommendedTripPage extends StatelessWidget {
-  const RecommendedTripPage({super.key});
+class TripsPage extends StatefulWidget {
+  final Map<String, dynamic>? itinerary;
+
+  const TripsPage({super.key, this.itinerary});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        title: const Text("Recommended Trip"),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+  State<TripsPage> createState() => _TripsPageState();
+}
 
-            /// HERO SECTION
-            Container(
-              height: 220,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/destination.jpg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                alignment: Alignment.bottomLeft,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Colors.black.withOpacity(0.7), Colors.transparent],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
-                ),
-                child: const Text(
-                  "Your 3-Day Trip to Ella",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
+class _TripsPageState extends State<TripsPage> {
+  Map<String, dynamic>? itinerary;
+  bool isLoading = true;
 
-            const SizedBox(height: 12),
+  @override
+  void initState() {
+    super.initState();
 
-            /// USER SELECTION SUMMARY
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: const [
-                  Chip(label: Text("📍 Ella")),
-                  Chip(label: Text("📅 3 Days")),
-                  Chip(label: Text("💰 Medium Budget")),
-                  Chip(label: Text("🏨 Hotel")),
-                  Chip(label: Text("🍽 Local Food")),
-                  Chip(label: Text("❤️ Nature & Hiking")),
-                ],
-              ),
-            ),
+    // If data passed → use it
+    if (widget.itinerary != null) {
+      itinerary = widget.itinerary;
+      isLoading = false;
+    } else {
+      loadLatestTrip(); // fallback
+    }
+  }
+  //  Load the most recent trip from Firestore
 
-            const SizedBox(height: 16),
+  Future<void> loadLatestTrip() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) return;
 
-            /// AI MESSAGE
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Text(
-                    "✨ Based on your interests and budget, we’ve created a relaxing and adventurous trip with scenic views, local food, and comfortable stays.",
-                    style: TextStyle(fontSize: 14),
-                  ),
-                ),
-              ),
-            ),
+      final snap = await FirebaseFirestore.instance
+          .collection("user_itineraries")
+          .doc(user.uid)
+          .collection("trips")
+          .orderBy("createdAt", descending: true)
+          .limit(1)
+          .get();
 
-            const SizedBox(height: 20),
+      if (snap.docs.isNotEmpty) {
+        itinerary = snap.docs.first.data();
+      }
 
-            /// DAY BY DAY ITINERARY
-            _sectionTitle("Day-wise Itinerary"),
-
-            _dayCard(
-              day: "Day 1",
-              title: "Arrival & City Exploration",
-              activities: [
-                "Check-in to hotel",
-                "Visit Nine Arch Bridge",
-                "Sunset at Ella Rock",
-              ],
-            ),
-
-            _dayCard(
-              day: "Day 2",
-              title: "Nature & Adventure",
-              activities: [
-                "Hike Little Adam’s Peak",
-                "Local restaurant lunch",
-                "Ravana Falls visit",
-              ],
-            ),
-
-            _dayCard(
-              day: "Day 3",
-              title: "Leisure & Departure",
-              activities: [
-                "Breakfast with view",
-                "Souvenir shopping",
-                "Return journey",
-              ],
-            ),
-
-            const SizedBox(height: 20),
-
-            /// STAY SECTION
-            _sectionTitle("Recommended Stay"),
-
-            _infoCard(
-              icon: Icons.hotel,
-              title: "Mountain View Hotel",
-              description:
-                  "Comfortable hotel close to attractions, suitable for medium budget travelers.",
-            ),
-
-            /// FOOD SECTION
-            _sectionTitle("Food Experience"),
-
-            _infoCard(
-              icon: Icons.restaurant,
-              title: "Local Cuisine Highlights",
-              description:
-                  "Traditional Sri Lankan rice & curry, street food, and cozy cafés.",
-            ),
-
-            /// BUDGET SECTION
-            _sectionTitle("Estimated Budget"),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Column(
-                children: const [
-                  _budgetRow("Stay", "40%"),
-                  _budgetRow("Food", "25%"),
-                  _budgetRow("Transport", "20%"),
-                  _budgetRow("Activities", "15%"),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            /// ACTION BUTTONS
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Column(
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 48),
-                    ),
-                    onPressed: () {},
-                    child: const Text("Save Trip"),
-                  ),
-                  const SizedBox(height: 10),
-                  OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 48),
-                    ),
-                    onPressed: () {},
-                    child: const Text("Modify Preferences"),
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 30),
-          ],
-        ),
-      ),
-    );
+      setState(() => isLoading = false);
+    } catch (e) {
+      debugPrint("Error loading trip: $e");
+      setState(() => isLoading = false);
+    }
   }
 
-  /// SECTION TITLE
-  Widget _sectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(12, 16, 12, 8),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
+  // Extract a list of items by key
+  List<Map<String, dynamic>> _extract(String key) {
+    final data = itinerary?[key];
+    if (data == null || data is! List) return [];
+    return List<Map<String, dynamic>>.from(data);
   }
 
-  /// DAY CARD
-  static Widget _dayCard({
-    required String day,
-    required String title,
-    required List<String> activities,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+  Map<int, Map<String, List<String>>> groupAllByDay() {
+    Map<int, Map<String, List<String>>> result = {};
+
+    void addItems(List<Map<String, dynamic>> list, String type) {
+      for (var item in list) {
+        final day = item["day"] ?? 1;
+
+        final name = item["item"] is Map
+            ? item["item"]["name"] ?? ""
+            : item["item"]?.toString() ?? "";
+
+        result.putIfAbsent(day, () => {"places": [], "stays": [], "cafes": []});
+
+        result[day]![type]!.add(name);
+      }
+    }
+
+    addItems(_extract("places"), "places");
+    addItems(_extract("stays"), "stays");
+    addItems(_extract("cafes"), "cafes");
+
+    return result;
+  }
+
+  // SAVE TO HISTORY
+  Future<void> saveTripToFirestore() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+
+      if (user == null) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text("User not logged in")));
+        return;
+      }
+
+      if (itinerary == null) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text("No itinerary to save")));
+        return;
+      }
+
+      // SAVE TO FIRESTORE
+      await FirebaseFirestore.instance
+          .collection("user_history")
+          .doc(user.uid)
+          .collection("trips")
+          .add({
+            "places": itinerary!["places"] ?? [],
+            "stays": itinerary!["stays"] ?? [],
+            "cafes": itinerary!["cafes"] ?? [],
+            "savedAt": FieldValue.serverTimestamp(),
+          });
+
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Trip saved to history")));
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Error saving trip: $e")));
+    }
+  }
+
+  // SAVE OFFLINE
+  Future<void> saveTripOffline() async {
+    try {
+      if (itinerary == null) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text("No itinerary to save")));
+        return;
+      }
+
+      // SAVE OFFLINE (FIXED)
+      final prefs = await SharedPreferences.getInstance();
+
+      final offlineData = {
+        "places": itinerary?["places"] ?? [],
+        "stays": itinerary?["stays"] ?? [],
+        "cafes": itinerary?["cafes"] ?? [],
+      };
+
+      debugPrint("Saving Offline Data: ${jsonEncode(offlineData)}");
+
+      await prefs.setString("cached_trip", jsonEncode(offlineData));
+    } catch (e) {
+      debugPrint("Error saving history: $e");
+      debugPrint("SAVING OFFLINE DATA: ${jsonEncode(itinerary)}");
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Trip saved + cached offline")),
+      );
+    }
+  }
+
+  //UI for each day card
+  Widget buildDayCard(int day, Map<String, List<String>> data) {
+    return SizedBox(
+      width: double.infinity,
+
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        color: Colors.white.withOpacity(0.6),
+        margin: const EdgeInsets.only(bottom: 15),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "$day – $title",
+                "Day $day Trip",
                 style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
+                  color: kOrangeDark,
                 ),
               ),
-              const SizedBox(height: 8),
-              ...activities.map(
-                (a) => Padding(
-                  padding: const EdgeInsets.only(bottom: 4),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.circle, size: 6),
-                      const SizedBox(width: 8),
-                      Expanded(child: Text(a)),
-                    ],
-                  ),
+              const SizedBox(height: 10),
+
+              if (data["places"]!.isNotEmpty) ...[
+                const Text(
+                  "📍 Places",
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-              ),
+                ...data["places"]!.map((e) => Text("• $e")),
+              ],
+
+              if (data["stays"]!.isNotEmpty) ...[
+                const Text(
+                  "🏨 Stays",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                ...data["stays"]!.map((e) => Text("• $e")),
+              ],
+
+              if (data["cafes"]!.isNotEmpty) ...[
+                const Text(
+                  "☕ Cafes",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                ...data["cafes"]!.map((e) => Text("• $e")),
+              ],
             ],
           ),
         ),
@@ -246,47 +216,78 @@ class RecommendedTripPage extends StatelessWidget {
     );
   }
 
-  /// INFO CARD
-  static Widget _infoCard({
-    required IconData icon,
-    required String title,
-    required String description,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: ListTile(
-          leading: Icon(icon),
-          title: Text(title),
-          subtitle: Text(description),
-        ),
-      ),
-    );
-  }
-}
-
-/// BUDGET ROW
-class _budgetRow extends StatelessWidget {
-  final String title;
-  final String value;
-
-  const _budgetRow(this.title, this.value);
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(title),
-          Text(
-            value,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
+    final grouped = itinerary == null ? {} : groupAllByDay();
+    final sortedDays = grouped.keys.toList()..sort();
+
+    return Scaffold(
+      appBar: const CustomAppBar(title: "My Trips"),
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : Stack(
+              children: [
+                SizedBox.expand(
+                  child: Image.asset("assets/trip.jpg", fit: BoxFit.cover),
+                ),
+                Container(color: Colors.black.withOpacity(0.7)),
+
+                SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Your Saved Itinerary",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      if (itinerary == null)
+                        const Text(
+                          "No saved trips found",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      else
+                        ...sortedDays.map(
+                          (day) => buildDayCard(day, grouped[day]!),
+                        ),
+
+                      const SizedBox(height: 20),
+
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: kOrangeDark,
+                        ),
+                        onPressed: saveTripToFirestore,
+                        child: const Text("Save to History"),
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey,
+                        ),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomePage(),
+                            ),
+                          );
+                        },
+                        child: const Text("Back to Home"),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }

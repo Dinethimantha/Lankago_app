@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lanka_go/constance/colors.dart';
 import 'package:lanka_go/widgets/custom_appbar.dart';
-import 'footer.dart'; // Import your Footer widget
+import 'footer.dart'; 
 
 class SavePage extends StatefulWidget {
   const SavePage({super.key});
@@ -26,7 +26,7 @@ class _SavePageState extends State<SavePage> {
     if (user == null) return;
 
     try {
-      // ✅ Updated path according to rules
+      // Updated path according to rules
       final snapshot = await FirebaseFirestore.instance
           .collection('userprofile')
           .doc(user.uid)

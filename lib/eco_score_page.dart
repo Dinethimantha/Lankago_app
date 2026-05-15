@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'footer.dart'; // ✅ Import your custom footer
+import 'package:lanka_go/constance/colors.dart';
+import 'package:lanka_go/widgets/custom_appbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EcoScorePage extends StatefulWidget {
   const EcoScorePage({super.key});
@@ -9,209 +11,342 @@ class EcoScorePage extends StatefulWidget {
 }
 
 class _EcoScorePageState extends State<EcoScorePage> {
+  String? transport;
+  String? food;
+  String? stay;
+
+  double score = 0;
+  List<String> history = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadHistory(); // LOAD HISTORY
+    loadCurrentScore(); // LOAD CURRENT SCORE
+  }
+
+  // LOAD HISTORY
+  Future<void> loadHistory() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      history = prefs.getStringList("eco_history") ?? [];
+    });
+  }
+
+  // SAVE HISTORY
+  Future<void> saveScore(double value) async {
+    final prefs = await SharedPreferences.getInstance();
+    history.insert(0, "Eco Score: ${value.toStringAsFixed(1)}%");
+    await prefs.setStringList("eco_history", history);
+  }
+
+  // SAVE CURRENT SCORE
+  Future<void> saveCurrentScore(double value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble("eco_score", value); // FIXED KEY
+  }
+
+  // LOAD CURRENT SCORE (THIS FIXES YOUR ISSUE)
+  Future<void> loadCurrentScore() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      score = prefs.getDouble("eco_score") ?? 0;
+    });
+  }
+
+  void calculateScore() {
+    int total = 0;
+
+    // Transport
+    switch (transport) {
+      case "walk":
+      case "bike":
+        total += 25;
+        break;
+      case "bus":
+      case "train":
+        total += 20;
+        break;
+      case "tuk":
+        total += 10;
+        break;
+      case "car":
+        total += 0;
+        break;
+    }
+
+    // Food
+    switch (food) {
+      case "vegan":
+        total += 25;
+        break;
+      case "vegetarian":
+        total += 20;
+        break;
+      case "mixed":
+        total += 10;
+        break;
+      case "meat":
+        total += 0;
+        break;
+    }
+
+    // Stay
+    switch (stay) {
+      case "villa":
+      case "resort":
+        total += 5;
+        break;
+      case "standard":
+        total += 15;
+        break;
+      case "luxury":
+        total += 0;
+        break;
+    }
+
+    double finalScore = (total / 75) * 100;
+
+    setState(() {
+      score = finalScore;
+    });
+
+    saveScore(finalScore);
+    saveCurrentScore(finalScore);
+    loadHistory();
+  }
+
+  Widget buildRadio(
+    String title,
+    String value,
+    String? group,
+    Function(String?) onChanged,
+  ) {
+    return RadioListTile<String>(
+      title: Text(title),
+      value: value,
+      groupValue: group,
+      onChanged: onChanged,
+    );
+  }
+
+  Widget buildSection(String title, Widget child) {
+    return Card(
+      color: kBrownLight.withOpacity(0.3),
+      margin: const EdgeInsets.all(5),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: kBrownDark,
+              ),
+            ),
+            child,
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[50],
-      appBar: AppBar(
-        backgroundColor: Colors.yellow[700],
-        iconTheme: const IconThemeData(color: Colors.brown),
-        title: const Text(
-          'Eco Travel Score',
-          style: TextStyle(color: Colors.brown),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Your Eco Score
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFFFFE16B), Color(0xFFE2BD2B)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 8,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "Your Eco Score",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.brown,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "Keep up the great work!",
-                      style: TextStyle(color: Colors.black87),
-                    ),
-                    SizedBox(height: 12),
-                    Text("This Week", style: TextStyle(color: Colors.black87)),
-                    SizedBox(height: 4),
-                    Text(
-                      "73",
-                      style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "vs Last Week +12",
-                      style: TextStyle(color: Colors.green),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
+      appBar: CustomAppBar(title: "Eco Score Calculator"),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset("assets/eco.jpg", height: 200, fit: BoxFit.cover),
 
-              // Recent Activities
-              const Text(
-                "Recent Activities",
-                style: TextStyle(
-                  fontSize: 16,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Calculate your Eco Score based on your  choices!",
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: kBrownDark,
                   fontWeight: FontWeight.bold,
-                  color: Colors.brown,
                 ),
+                textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 8),
-              _activityItem("Shared Tuk-Tuk", "+5 points", "2 hours ago"),
-              _activityItem("Cycling", "+8 points", "5 hours ago"),
-              _activityItem("Public Transport", "+6 points", "Yesterday"),
-              _activityItem("Walking Tour", "+4 points", "Yesterday"),
-              const SizedBox(height: 20),
-
-              // Reward Badges
-              const Text(
-                "Reward Badges",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.brown,
-                ),
+            ),
+            Text(
+              "You can calculator one day eco score at a time.",
+              style: const TextStyle(
+                fontSize: 18,
+                color: kBtnGreen,
+                fontWeight: FontWeight.w500,
               ),
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
+              textAlign: TextAlign.center,
+            ),
+            buildSection(
+              "Transportation Preference ",
+              Column(
                 children: [
-                  _badgeCard("Eco Explorer", "Level 3"),
-                  _badgeCard("Green Traveller", "Level 2"),
-                  _badgeCard("Eco Warrior", "Level 1"),
-                  _badgeCard("Planet Hero", "Locked"),
+                  buildRadio(
+                    "Car",
+                    "car",
+                    transport,
+                    (v) => setState(() => transport = v),
+                  ),
+                  buildRadio(
+                    "Tuk",
+                    "tuk",
+                    transport,
+                    (v) => setState(() => transport = v),
+                  ),
+                  buildRadio(
+                    "Bus",
+                    "bus",
+                    transport,
+                    (v) => setState(() => transport = v),
+                  ),
+                  buildRadio(
+                    "Train",
+                    "train",
+                    transport,
+                    (v) => setState(() => transport = v),
+                  ),
+                  buildRadio(
+                    "Walk",
+                    "walk",
+                    transport,
+                    (v) => setState(() => transport = v),
+                  ),
+                  buildRadio(
+                    "Bike",
+                    "bike",
+                    transport,
+                    (v) => setState(() => transport = v),
+                  ),
                 ],
               ),
-              const SizedBox(height: 20),
-
-              // Eco Tips
-              const Text(
-                "Eco Tips",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.brown,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.yellow[100],
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
-                      blurRadius: 6,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: const Text(
-                  "Try carpooling! Share rides with other travelers to reduce your carbon footprint and earn more eco points.",
-                  style: TextStyle(color: Colors.black87),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-
-      // ✅ Footer at Bottom
-      bottomNavigationBar: const Footer(selectedIndex: 0),
-    );
-  }
-
-  // Recent activity item
-  static Widget _activityItem(String activity, String points, String time) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 6),
-      child: ListTile(
-        title: Text(
-          activity,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        subtitle: Text(time),
-        trailing: Text(
-          points,
-          style: const TextStyle(
-            color: Colors.green,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
-
-  // Badge card
-  static Widget _badgeCard(String title, String level) {
-    bool locked = level.toLowerCase() == "locked";
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: locked ? Colors.grey[300] : Colors.yellow[200],
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.emoji_events,
-            color: locked ? Colors.grey : Colors.brown,
-            size: 30,
-          ),
-          const SizedBox(height: 6),
-          Text(
-            title,
-            style: TextStyle(
-              color: locked ? Colors.grey : Colors.brown,
-              fontWeight: FontWeight.bold,
             ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            level,
-            style: TextStyle(color: locked ? Colors.grey : Colors.green),
-          ),
-        ],
+
+            buildSection(
+              "Food Preference",
+              Column(
+                children: [
+                  buildRadio(
+                    "Meat Based",
+                    "meat",
+                    food,
+                    (v) => setState(() => food = v),
+                  ),
+                  buildRadio(
+                    "Mixed Diet",
+                    "mixed",
+                    food,
+                    (v) => setState(() => food = v),
+                  ),
+                  buildRadio(
+                    "Vegetarian",
+                    "vegetarian",
+                    food,
+                    (v) => setState(() => food = v),
+                  ),
+                  buildRadio(
+                    "Vegan",
+                    "vegan",
+                    food,
+                    (v) => setState(() => food = v),
+                  ),
+                ],
+              ),
+            ),
+
+            buildSection(
+              "Preferred Stay Type",
+              Column(
+                children: [
+                  buildRadio(
+                    "Luxury Hotel",
+                    "luxury",
+                    stay,
+                    (v) => setState(() => stay = v),
+                  ),
+                  buildRadio(
+                    "Standard Hotel",
+                    "standard",
+                    stay,
+                    (v) => setState(() => stay = v),
+                  ),
+                  buildRadio(
+                    "Villa",
+                    "villa",
+                    stay,
+                    (v) => setState(() => stay = v),
+                  ),
+                  buildRadio(
+                    "Resort",
+                    "resort",
+                    stay,
+                    (v) => setState(() => stay = v),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: kBtnGreen,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 15,
+                ),
+              ),
+              onPressed: calculateScore,
+              child: const Text(
+                "Calculate Eco Score",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            Text(
+              "Eco Score: ${score.toStringAsFixed(1)}%",
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: LinearProgressIndicator(value: score / 100, minHeight: 10, color: const Color.fromARGB(255, 107, 196, 112),),
+            ),
+
+            const Divider(),
+
+            const Text(
+              "Previous Scores",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: kBrownDark),
+            ),
+
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: history.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: const Icon(Icons.history),
+                  title: Text(history[index]),
+                );
+              },
+            ),
+
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

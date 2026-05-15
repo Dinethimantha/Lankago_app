@@ -26,18 +26,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
   void initState() {
     super.initState();
     // Load current data
-    _loadProfile(); 
+    _loadProfile();
   }
 
   void _loadProfile() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
-
       // Fill email from logged-in user
       _emailController.text = user.email ?? "";
 
       final uid = user.uid;
-      final doc = await FirebaseFirestore.instance.collection('userprofile').doc(uid).get();
+      final doc = await FirebaseFirestore.instance
+          .collection('userprofile')
+          .doc(uid)
+          .get();
 
       if (doc.exists) {
         _nameController.text = doc['fullName'] ?? "";
@@ -50,32 +52,27 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[50],
       appBar: CustomAppBar(title: "Edit Profile"),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
-            
             children: [
               const SizedBox(height: 50),
 
-              //Profile Icon 
-              const CircleAvatar(
-                radius: 55,
-                backgroundColor: kBrownLight,
-                child: Icon(
-                  FontAwesomeIcons.userEdit,
-                  size: 55,
-                  color: Colors.white,
-                ),
-              ),
+              //Profile Icon
+              Image.asset("assets/profile_edit.png", height: 200, width: 200),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
 
               _buildField(_nameController, "Full Name", Icons.person),
-              _buildField(_emailController, "Email", Icons.email, enabled: false), // read-only
+              _buildField(
+                _emailController,
+                "Email",
+                Icons.email,
+                enabled: false,
+              ), // read-only
               _buildField(_phoneController, "Mobile Number", Icons.phone),
               _buildField(_countryController, "Country", Icons.public),
 
@@ -124,13 +121,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
           hintText: hint,
           prefixIcon: Icon(icon),
           filled: true,
-          fillColor: Colors.yellow[100],
+          fillColor: const Color.fromARGB(106, 255, 140, 0),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide.none,
           ),
         ),
-        validator: (value) => (value == null || value.isEmpty) && enabled ? "Enter $hint" : null,
+        validator: (value) =>
+            (value == null || value.isEmpty) && enabled ? "Enter $hint" : null,
       ),
     );
   }
@@ -144,12 +142,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
       if (user != null) {
         final uid = user.uid;
 
-        await FirebaseFirestore.instance.collection('userprofile').doc(uid).set({
-          'fullName': _nameController.text,
-          'email': _emailController.text, 
-          'phone': _phoneController.text,
-          'country': _countryController.text,
-        });
+        await FirebaseFirestore.instance
+            .collection('userprofile')
+            .doc(uid)
+            .set({
+              'fullName': _nameController.text,
+              'email': _emailController.text,
+              'phone': _phoneController.text,
+              'country': _countryController.text,
+            });
 
         setState(() => _isSaving = false);
 
@@ -159,7 +160,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
         // Return to ProfilePage
 
-        Navigator.pop(context); 
+        Navigator.pop(context);
       }
     }
   }

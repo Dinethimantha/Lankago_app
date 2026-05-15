@@ -74,7 +74,7 @@ class StaysFoodPlacesPage extends StatelessWidget {
         ),
       ),
 
-      // ✅ Footer at Bottom
+      //  Footer at Bottom
       bottomNavigationBar: const Footer(selectedIndex: 0),
     );
   }

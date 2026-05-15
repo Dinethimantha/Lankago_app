@@ -1,184 +1,227 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'footer.dart';
+import 'package:lanka_go/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:lanka_go/widgets/custom_appbar.dart';
+import 'package:lanka_go/constance/colors.dart';
 
-class OfflineModePage extends StatefulWidget {
-  const OfflineModePage({super.key});
+class OfflinePage extends StatefulWidget {
+  const OfflinePage({super.key});
 
   @override
-  State<OfflineModePage> createState() => _OfflineModePageState();
+  State<OfflinePage> createState() => _OfflinePageState();
 }
 
-class _OfflineModePageState extends State<OfflineModePage> {
-  bool offlineEnabled = true;
+class _OfflinePageState extends State<OfflinePage> {
+  Map<String, dynamic>? cachedTrip;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    loadCachedTrip();
+  }
+
+  Future<void> loadCachedTrip() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+
+      // DEBUG
+      print("Checking cached_trip...");
+
+      final data = prefs.getString("cached_trip");
+
+      print("Saved Data: $data");
+
+      if (data != null && data.trim().isNotEmpty) {
+        final decoded = jsonDecode(data);
+
+        if (decoded is Map<String, dynamic>) {
+          cachedTrip = decoded;
+        } else {
+          cachedTrip = null;
+        }
+      } else {
+        cachedTrip = null;
+      }
+    } catch (e) {
+      print("Error loading cached trip: $e");
+      cachedTrip = null;
+    }
+
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  // GROUP BY DAY
+  Map<int, Map<String, List<String>>> groupByDay() {
+    Map<int, Map<String, List<String>>> result = {};
+
+    void addItems(List list, String type) {
+      for (var e in list) {
+        if (e is Map) {
+          final day = e["day"] ?? 1;
+
+          final name = e["item"] is Map
+              ? e["item"]["name"] ?? "Unknown"
+              : e["item"]?.toString() ?? "Unknown";
+
+          result.putIfAbsent(
+            day,
+            () => {"places": [], "stays": [], "cafes": []},
+          );
+
+          result[day]![type]!.add(name);
+        }
+      }
+    }
+
+    addItems(cachedTrip?["places"] ?? [], "places");
+    addItems(cachedTrip?["stays"] ?? [], "stays");
+    addItems(cachedTrip?["cafes"] ?? [], "cafes");
+
+    return result;
+  }
+
+  // BUILD DAY CARD
+  Widget buildDayCard(int day, Map<String, List<String>> data) {
+    return SizedBox(
+      width: double.infinity,
+      child: Card(
+        color: Colors.white.withOpacity(0.75),
+        margin: const EdgeInsets.only(bottom: 15),
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Day $day",
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: kOrangeDark,
+                ),
+              ),
+              const SizedBox(height: 10),
+
+              if (data["places"]!.isNotEmpty) ...[
+                const Text(
+                  "📍 Places",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                ...data["places"]!.map(
+                  (e) => Text("• $e", style: const TextStyle(fontSize: 15)),
+                ),
+                const SizedBox(height: 8),
+              ],
+
+              if (data["stays"]!.isNotEmpty) ...[
+                const Text(
+                  "🏨 Stays",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                ...data["stays"]!.map(
+                  (e) => Text("• $e", style: const TextStyle(fontSize: 15)),
+                ),
+                const SizedBox(height: 8),
+              ],
+
+              if (data["cafes"]!.isNotEmpty) ...[
+                const Text(
+                  "☕ Cafes",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                ...data["cafes"]!.map(
+                  (e) => Text("• $e", style: const TextStyle(fontSize: 15)),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final grouped = cachedTrip == null ? {} : groupByDay();
+    final days = grouped.keys.toList()..sort();
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Offline Mode"),
-        backgroundColor: Colors.yellow[700],
-        foregroundColor: Colors.brown,
-        centerTitle: true,
-        elevation: 0,
-      ),
+      appBar: const CustomAppBar(title: "Offline Mode"),
       body: Container(
         width: double.infinity,
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
+        height: double.infinity,
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.yellow.shade50, Colors.yellow.shade100],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            colors: [kBtnGray, kBrownLight],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Offline Toggle Card
-            _sectionCard(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Column(
+        child: isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : cachedTrip == null
+            ? const Center(
+                child: Text(
+                  "No offline data found",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              )
+            : Padding(
+                padding: const EdgeInsets.all(16),
+                child: SingleChildScrollView(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Enable Offline Mode",
+                      const Text(
+                        "Offline Saved Trip",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
+                          color: kBtnBlue,
                         ),
                       ),
-                      SizedBox(height: 4),
-                      Text(
-                        "Use saved trips without internet",
-                        style: TextStyle(color: Colors.black54),
+
+                      const SizedBox(height: 20),
+
+                      ...days.map((day) {
+                        return buildDayCard(day, grouped[day]!);
+                      }),
+
+                      const SizedBox(height: 20),
+
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => const HomePage()),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: kOrangeDark,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 12,
+                            ),
+                          ),
+                          child: const Text(
+                            "Back to Home",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
+
+                      const SizedBox(height: 20),
                     ],
                   ),
-                  Switch(
-                    value: offlineEnabled,
-                    activeThumbColor: Colors.yellow[700],
-                    onChanged: (val) {
-                      setState(() {
-                        offlineEnabled = val;
-                      });
-                    },
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            // Available Offline
-            const Text(
-              "Available Offline",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.brown,
-              ),
-            ),
-            const SizedBox(height: 10),
-
-            _offlineItem("Colombo City Tour", "3 Days"),
-            _offlineItem("Kandy & Nuwara Eliya", "4 Days"),
-            _offlineItem("Galle Beach Trip", "2 Days"),
-
-            const SizedBox(height: 30),
-
-            // Simple Actions
-            const Text(
-              "Actions",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.brown,
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            Row(
-              children: [
-                Expanded(child: _actionButton("Download Trips")),
-                const SizedBox(width: 12),
-                Expanded(child: _actionButton("Remove All")),
-              ],
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: const Footer(selectedIndex: 2),
-    );
-  }
-
-  /* ---------------- UI Components ---------------- */
-
-  Widget _sectionCard({required Widget child}) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.brown.withOpacity(0.15),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: child,
-    );
-  }
-
-  Widget _offlineItem(String title, String subtitle) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.download_done, color: Colors.green),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  subtitle,
-                  style: const TextStyle(color: Colors.black54),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _actionButton(String label) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.yellow[700],
-        foregroundColor: Colors.brown,
-        padding: const EdgeInsets.symmetric(vertical: 14),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
-        ),
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
       ),
     );
   }

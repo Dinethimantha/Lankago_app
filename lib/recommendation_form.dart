@@ -43,7 +43,8 @@ class _RecommendationFormState extends State<RecommendationForm> {
     loadUserPreferences();
   }
 
-  // ================= LOAD USER DATA =================
+  // load user preferences from firestore
+  
   Future<void> loadUserPreferences() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
@@ -77,7 +78,8 @@ class _RecommendationFormState extends State<RecommendationForm> {
     }
   }
 
-  // ================= SAVE FORM =================
+  // submit form and save to firestore with error handling
+
   Future<void> submitForm() async {
     if (!_formKey.currentState!.validate()) return;
 
@@ -121,7 +123,7 @@ class _RecommendationFormState extends State<RecommendationForm> {
     }
   }
 
-  // ================= DROPDOWN =================
+  // dropdown builder
   Widget buildDropdown({
     required String label,
     required String? value,
@@ -169,7 +171,8 @@ class _RecommendationFormState extends State<RecommendationForm> {
     );
   }
 
-  // ================= CHECKBOX =================
+  // checkbox list builder
+
   Widget buildCheckboxList({
     required String label,
     required List<String> options,
@@ -209,7 +212,7 @@ class _RecommendationFormState extends State<RecommendationForm> {
     );
   }
 
-  // ================= UI =================
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

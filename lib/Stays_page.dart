@@ -25,9 +25,49 @@ class _StaysPageState extends State<StaysPage> {
     loadRecommendations();
   }
 
-  // ==========================
-  // LOAD USER PREFERENCES
-  // ==========================
+  // submit stays to firestore with duplicate prevention
+
+  Future<void> saveStaysToFirestore(List<dynamic> stays) async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null || stays.isEmpty) return;
+
+      final collection = FirebaseFirestore.instance
+          .collection('user_recommendations')
+          .doc(user.uid)
+          .collection('data');
+
+      // Check last saved stay
+      final snapshot = await collection
+          .where("type", isEqualTo: "stay")
+          .orderBy("timestamp", descending: true)
+          .limit(1)
+          .get();
+
+      if (snapshot.docs.isNotEmpty) {
+        final lastData = snapshot.docs.first.data()['data'];
+
+        // Prevent duplicate save
+        if (jsonEncode(lastData) == jsonEncode(stays)) {
+          debugPrint("Duplicate stays - not saving");
+          return;
+        }
+      }
+
+      await collection.add({
+        "type": "stay",
+        "timestamp": FieldValue.serverTimestamp(),
+        "data": stays,
+      });
+
+      debugPrint("Stays saved to Firestore");
+    } catch (e) {
+      debugPrint("Error saving stays: $e");
+    }
+  }
+
+  // load user preferences and get recommendations from API with error handling
+
   Future<void> loadRecommendations() async {
     try {
       final user = FirebaseAuth.instance.currentUser;
@@ -39,7 +79,6 @@ class _StaysPageState extends State<StaysPage> {
         return;
       }
 
-      // ✅ Updated Firestore path to match your security rules
       final snapshot = await FirebaseFirestore.instance
           .collection('userprofile')
           .doc(user.uid)
@@ -49,7 +88,7 @@ class _StaysPageState extends State<StaysPage> {
       if (snapshot.docs.isEmpty) {
         setState(() {
           isLoading = false;
-          errorMessage = "No user preferences found in Firestore.";
+          errorMessage = "No user preferences found.";
         });
         return;
       }
@@ -57,7 +96,7 @@ class _StaysPageState extends State<StaysPage> {
       final data = snapshot.docs.first.data();
 
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:5000/recommend_stay'), // Emulator URL
+        Uri.parse('http://10.0.2.2:5000/recommend_stay'),
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({
           "district": data['district'] ?? "",
@@ -68,64 +107,75 @@ class _StaysPageState extends State<StaysPage> {
       );
 
       if (response.statusCode == 200) {
+        final decoded = jsonDecode(response.body);
+
         setState(() {
-          recommendedStays = jsonDecode(response.body);
+          recommendedStays = decoded;
           isLoading = false;
         });
+
+        // Save only if not empty
+        if (decoded.isNotEmpty) {
+          await saveStaysToFirestore(decoded);
+        }
       } else {
         setState(() {
-          errorMessage =
-              "Failed to load recommendations: ${response.statusCode}\n${response.body}";
           isLoading = false;
+          errorMessage =
+              "Failed to load recommendations (${response.statusCode})";
         });
       }
     } catch (e) {
       setState(() {
-        errorMessage =
-            "Cannot connect to Firestore/API. Make sure your user has permission and the Flask API is running.\nError: $e";
         isLoading = false;
+        errorMessage = "Error loading recommendations: $e";
       });
     }
   }
 
-  // ==========================
-  // OPEN URL / PHONE
-  // ==========================
-  Future<void> _openLink(String? contactOrUrl) async {
-    if (contactOrUrl == null || contactOrUrl.isEmpty) return;
+  // open link with error handling (supports URL, domain, phone)
 
-    contactOrUrl = contactOrUrl.trim();
-    Uri uri;
+  Future<void> _openLink(String? value) async {
+    if (value == null || value.trim().isEmpty) {
+      _show("No link available");
+      return;
+    }
 
     try {
-      if (contactOrUrl.startsWith("http")) {
-        uri = Uri.parse(contactOrUrl);
-      } else if (contactOrUrl.contains('.') && !contactOrUrl.contains(' ')) {
-        uri = Uri.parse("https://$contactOrUrl");
-      } else {
-        final phone = contactOrUrl.replaceAll(RegExp(r'[^0-9+]'), '');
-        uri = Uri(scheme: "tel", path: phone);
+      String input = value.trim();
+
+      Uri uri;
+
+      //  full URL
+      if (input.startsWith("http")) {
+        uri = Uri.parse(input);
+      }
+      //  domain without https
+      else if (input.contains(".") && !input.contains(" ")) {
+        uri = Uri.parse("https://$input");
+      }
+      //  phone number
+      else {
+        final phone = input.replaceAll(RegExp(r'[^0-9+]'), '');
+        if (phone.isEmpty) {
+          _show("Invalid contact");
+          return;
+        }
+        uri = Uri.parse("tel:$phone");
       }
 
-      if (await canLaunchUrl(uri)) {
-        await launchUrl(uri, mode: LaunchMode.externalApplication);
-      } else {
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Cannot open the link or contact.")),
-        );
-      }
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
     } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Error opening the link or contact.")),
-      );
+      debugPrint("Launch error: $e");
+      _show("Cannot open link");
     }
   }
 
-  // ==========================
-  // BUILD UI
-  // ==========================
+  void _show(String msg) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
+  }
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,7 +183,6 @@ class _StaysPageState extends State<StaysPage> {
       appBar: const CustomAppBar(title: "Recommended Stays"),
       body: Stack(
         children: [
-          // Background
           SizedBox.expand(
             child: Image.asset(
               "assets/stays_rec.jpg",
@@ -146,62 +195,69 @@ class _StaysPageState extends State<StaysPage> {
             child: isLoading
                 ? const Center(child: CircularProgressIndicator())
                 : errorMessage.isNotEmpty
-                    ? Center(
-                        child: Text(
-                          errorMessage,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 16),
-                          textAlign: TextAlign.center,
-                        ),
-                      )
-                    : recommendedStays.isEmpty
-                        ? const Center(
-                            child: Text(
-                              "No recommendations found",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          )
-                        : ListView.builder(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            itemCount: recommendedStays.length,
-                            itemBuilder: (context, index) {
-                              final stay = recommendedStays[index];
+                ? Center(
+                    child: Text(
+                      errorMessage,
+                      style: const TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  )
+                : recommendedStays.isEmpty
+                ? const Center(
+                    child: Text(
+                      "No recommendations found",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
+                : ListView.builder(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    itemCount: recommendedStays.length,
+                    itemBuilder: (context, index) {
+                      final stay = recommendedStays[index];
 
-                              return GestureDetector(
-                                onTap: () =>
-                                    _openLink(stay['contact'] ?? ""),
-                                child: Card(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 8),
-                                  elevation: 4,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12)),
-                                  color: Colors.white.withOpacity(0.7),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          stay['name'] ?? "",
-                                          style: const TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                              color: kOrangeDark),
-                                        ),
-                                        const SizedBox(height: 8),
-                                        Text(
-                                          stay['description'] ?? "",
-                                          style: const TextStyle(fontSize: 16),
-                                        ),
-                                      ],
-                                    ),
+                      return GestureDetector(
+                        onTap: () => _openLink(
+                          stay['url'] ??
+                              stay['URL'] ??
+                              stay['website'] ??
+                              stay['contact'] ??
+                              stay['phone'] ??
+                              "",
+                        ),
+                        child: Card(
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          color: Colors.white.withOpacity(0.7),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  stay['name'] ?? "",
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: kOrangeDark,
                                   ),
                                 ),
-                              );
-                            },
+                                const SizedBox(height: 8),
+                                Text(
+                                  stay['description'] ?? "",
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
                           ),
+                        ),
+                      );
+                    },
+                  ),
           ),
         ],
       ),

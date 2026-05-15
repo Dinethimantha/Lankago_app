@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 
-// ================= MAIN BRAND COLORS =================
+// PRIMARY COLORS
 const kPrimaryYellow = Color(0xffFFDD02); // MAIN COLOR
 const kPrimaryYellowDark = Color(0xffE6C800);
 const kPrimaryYellowLight = Color(0xffFFF3A0);
 const kappbaryellow = Color(0xFFFFC107);
 
-// SUPPORT COLORS 
+// SUPPORT COLORS
 const kMainWhite = Colors.white;
 const kOrangePrimary = Color(0xffFF8C00);
 const kOrangeDark = Color(0xffE07000);
 const kBrownDark = Color(0xff4E342E);
 const kBrownLight = Color(0xffA1887F);
+const kpurple = Color.fromARGB(255, 147, 0, 161);
 
-// TEXT COLORS 
+const kblue = Color.fromARGB(255, 24, 35, 157);
+const kblack = Color.fromARGB(255, 0, 0, 0);
+
+
+// TEXT COLORS
 const kTextDarkGray = Color(0xff33425b);
 const kTextGray = Color(0xffD1D1D1);
 const kTextWhite = Colors.white;

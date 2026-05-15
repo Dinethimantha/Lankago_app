@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lanka_go/constance/colors.dart';
+import 'package:lanka_go/view_trip.dart';
 import 'home.dart';
 import 'explore_page.dart';
 import 'trips_page.dart';
@@ -25,7 +26,8 @@ class _FooterState extends State<Footer> {
   }
 
   void _onItemTapped(int index) {
-    if (_currentIndex == index) return; // Prevent reloading same page
+    if (_currentIndex == index) return;
+
     setState(() => _currentIndex = index);
 
     switch (index) {
@@ -35,24 +37,29 @@ class _FooterState extends State<Footer> {
           MaterialPageRoute(builder: (_) => const HomePage()),
         );
         break;
+
       case 1:
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (_) => const ExplorePage()),
         );
         break;
+
       case 2:
-        Navigator.pushReplacement(
+        // open trips page but keep the bottom nav
+        Navigator.push(
           context,
-          MaterialPageRoute(builder: (_) => const RecommendedTripPage()),
+          MaterialPageRoute(builder: (_) => const ViewTripPage()),
         );
         break;
+
       case 3:
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (_) => const SavePage()),
         );
         break;
+
       case 4:
         Navigator.pushReplacement(
           context,
@@ -64,7 +71,6 @@ class _FooterState extends State<Footer> {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -72,7 +78,11 @@ class _FooterState extends State<Footer> {
           topRight: Radius.circular(20),
         ),
         gradient: LinearGradient(
-          colors: [kBrownDark,Color.fromARGB(255, 132, 108, 99), kBrownDark],
+          colors: [
+            kBrownDark,
+            Color.fromARGB(255, 132, 108, 99),
+            kBrownDark
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -93,34 +103,6 @@ class _FooterState extends State<Footer> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
-    );
-  }
-}
-
-// Example extra page for footer
-class FooterExtraPage extends StatelessWidget {
-  const FooterExtraPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kPrimaryYellowLight,
-      appBar: AppBar(
-        backgroundColor: Colors.yellow[700],
-        iconTheme: const IconThemeData(color: Colors.brown),
-        title: const Text(
-          "More Options",
-          style: TextStyle(color: Colors.brown, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          "Extra Footer Page Content",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-      ),
-      bottomNavigationBar: Footer(selectedIndex: 4), // ✅ valid now
     );
   }
 }

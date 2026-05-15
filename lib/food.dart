@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lanka_go/stays_food_places_page.dart';
-import 'footer.dart'; // ✅ footer import
+import 'footer.dart'; 
 
 class FoodPage extends StatefulWidget {
   const FoodPage({super.key});
@@ -38,7 +38,8 @@ class _FoodPageState extends State<FoodPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 🟡 Search Bar
+
+            // Search Bar
             Row(
               children: [
                 Expanded(
@@ -78,7 +79,7 @@ class _FoodPageState extends State<FoodPage> {
             ),
             const SizedBox(height: 25),
 
-            // 🏨 Recommended Section
+            // Recommended Section
             const Text(
               "Recommended for You",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -121,12 +122,12 @@ class _FoodPageState extends State<FoodPage> {
         ),
       ),
 
-      // ✅ Footer at Bottom
+      //  Footer at Bottom
       bottomNavigationBar: const Footer(selectedIndex: 0),
     );
   }
 
-  // 🍴 Food Card Widget
+  //  Food Card Widget
   Widget _foodCard(
     String image,
     String name,
